@@ -33,6 +33,7 @@ import Animated, {
 import { PanGestureHandler, gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import { jobs, categories } from './data';
 import { degreeToRadian, getRandomColor, getRotationDegree } from './helpers';
+import { elevation_1, elevation_2, elevation_3 } from './utils';
 
 const SCR_WIDTH = Dimensions.get('window').width;
 
@@ -205,6 +206,9 @@ const JobCard = ({ job, index }) => {
     });
 
     const colorIndex = getRandomColor();
+    const isLastItem = jobs.length - 1 === index;
+    const shadow = isLastItem ? elevation_3 : elevation_1;
+    const opacity = isLastItem ? 1 : .4;
 
     const renderTags = tags.map(tag => (
         <View
@@ -230,7 +234,9 @@ const JobCard = ({ job, index }) => {
                 marginOffsetStyle,
                 animatedStyle,
                 {
-                    backgroundColor: colors[colorIndex]
+                    backgroundColor: colors[colorIndex],
+                    opacity: opacity,
+                    ...shadow
                 }
             ]}>
                 <Text style={{
