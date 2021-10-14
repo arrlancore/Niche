@@ -1,6 +1,6 @@
 import { colors } from './theme';
 
-export const getRandomColor = () => {
+export const getRandomColorIndex = () => {
     return Math.floor(Math.random() * colors.length);
 };
 
