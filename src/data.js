@@ -1,4 +1,7 @@
-export const jobs = [
+import { getRandomColorIndex } from './helpers';
+import { colors } from './theme';
+
+export const jobsData = [
     {
         company: 'Microsoft .Inc',
         title: 'Sr. Product Designer',
@@ -24,7 +27,10 @@ export const jobs = [
         order: {
             message: 'Be in the first',
             countMsg: '31 applicants'
-        }
+        },
+        color: function () {
+            return colors[getRandomColorIndex()];
+        }(),
     },
     {
         company: 'Google',
@@ -51,7 +57,10 @@ export const jobs = [
         order: {
             message: 'Be in the first',
             countMsg: '31 applicants'
-        }
+        },
+        color: function () {
+            return colors[getRandomColorIndex()];
+        }(),
     },
     {
         company: 'YouTube .Inc',
@@ -78,7 +87,10 @@ export const jobs = [
         order: {
             message: 'Be in the first',
             countMsg: '31 applicants'
-        }
+        },
+        color: function () {
+            return colors[getRandomColorIndex()];
+        }(),
     }
 ];
 
