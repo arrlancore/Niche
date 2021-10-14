@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
     SafeAreaView,
     StatusBar,
@@ -29,11 +29,12 @@ import Animated, {
     withSpring,
     useAnimatedStyle,
     useAnimatedGestureHandler,
+    runOnJS,
 } from 'react-native-reanimated';
 import { PanGestureHandler, gestureHandlerRootHOC } from 'react-native-gesture-handler';
-import { jobs, categories } from './data';
-import { degreeToRadian, getRandomColor, getRotationDegree } from './helpers';
-import { elevation_1, elevation_2, elevation_3 } from './utils';
+import { jobsData, categories } from './data';
+import { getRotationDegree } from './helpers';
+import { elevation_1, elevation_3 } from './utils';
 
 const SCR_WIDTH = Dimensions.get('window').width;
 
@@ -145,17 +146,27 @@ const JobCardFooter = ({ applied, hoursAgo }) => {
     );
 };
 
-const JobCard = ({ job, index }) => {
+
+
+const JobCard = ({ job, index, jobs, setJobs }) => {
     const {
         title,
         applied,
         company,
         hoursAgo,
         order,
-        tags
+        tags,
+        color
     } = job;
     const x = useSharedValue(0);
     const y = useSharedValue(0);
+
+    const updateJobsCards = () => {
+        const newJobs = jobs.slice(0, -1);
+        setTimeout(() => {
+            setJobs(newJobs.reverse());
+        }, 300);
+    };
 
     const marginOffsetStyle = {
         marginTop: index === 0 ? 30 : -230,
@@ -176,10 +187,12 @@ const JobCard = ({ job, index }) => {
         onEnd: (_) => {
             if (x.value > 100) {
                 x.value = withSpring(SCR_WIDTH);
+                runOnJS(updateJobsCards)();
                 return;
             }
             if (x.value < -100) {
                 x.value = withSpring(-SCR_WIDTH);
+                runOnJS(updateJobsCards)();
                 return;
             }
             x.value = withSpring(0);
@@ -205,10 +218,9 @@ const JobCard = ({ job, index }) => {
         };
     });
 
-    const colorIndex = getRandomColor();
     const isLastItem = jobs.length - 1 === index;
     const shadow = isLastItem ? elevation_3 : elevation_1;
-    const opacity = isLastItem ? 1 : .4;
+    const opacity = isLastItem ? 1 : 1;
 
     const renderTags = tags.map(tag => (
         <View
@@ -234,8 +246,8 @@ const JobCard = ({ job, index }) => {
                 marginOffsetStyle,
                 animatedStyle,
                 {
-                    backgroundColor: colors[colorIndex],
-                    opacity: opacity,
+                    backgroundColor: color,
+                    opacity,
                     ...shadow
                 }
             ]}>
@@ -321,6 +333,8 @@ const CategoryCard = () => {
 };
 
 const JobMatchedCard = () => {
+    const [jobs, setJobs] = useState(jobsData);
+
     return (
         <View style={[styles.subContainer]}>
             <CardTitle title='Job Matched' />
@@ -329,6 +343,8 @@ const JobMatchedCard = () => {
                     <JobCard
                         {...{ job }}
                         {...{ index }}
+                        {...{ jobs }}
+                        {...{ setJobs }}
                     />
                 </View>
             ))}
@@ -370,6 +386,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginHorizontal: 30
+        // flexDirection: ''
     },
     title: {
         marginTop: 28,
@@ -414,3 +431,26 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
+
+// let stack = [];
+
+// ops.forEach(op => {
+//   if (op == "C") {
+//     stack.pop();
+//     return;
+//   }
+
+//   if (op == "D") {
+//     stack.push(stack[stack.length - 1] * 2);
+//     return;
+//   }
+
+//   if (op == "+") {
+//     stack.push(stack[stack.length - 1] + stack[stack.length - 2]);
+//     return;
+//   }
+//   stack.push(Number(op));
+// })
+
+// result = stack.reduce((a, b) => a + b, 0);
