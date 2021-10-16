@@ -1,19 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions, Image, TouchableWithoutFeedback } from 'react-native';
-import Animated, {
-    useSharedValue,
-    withSpring,
-    useAnimatedStyle,
-    useAnimatedGestureHandler,
-    runOnJS,
-} from 'react-native-reanimated';
-import { PanGestureHandler, } from 'react-native-gesture-handler';
+import {
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    TouchableWithoutFeedback
+} from 'react-native';
 import { theme } from '../theme';
-import { getRotationDegree, elevation_1, elevation_3 } from '../helpers';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const CLOCK_ICON_SIZE = 16;
-const SCR_WIDTH = Dimensions.get('window').width;
 
 const JobStatus = ({ order }) => {
     return (

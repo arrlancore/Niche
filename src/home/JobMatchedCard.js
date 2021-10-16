@@ -3,11 +3,10 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { jobsData } from '../data';
 import JobCard from './JobCard';
 import Carousel from 'react-native-snap-carousel';
+import { useNavigation } from '@react-navigation/native';
 
 const sliderWidth = Dimensions.get('window').width;
 const itemWidth = sliderWidth * .85;
-
-
 
 const CardTitle = ({ title }) => {
     return (
@@ -15,12 +14,13 @@ const CardTitle = ({ title }) => {
     );
 };
 
-const onJobCardPress = () => {
-
-};
-
 const JobMatchedCard = () => {
     const [jobs, setJobs] = useState(jobsData);
+    const navigation = useNavigation();
+
+    const onJobCardPress = () => {
+        navigation.navigate('Job');
+    };
 
     const renderCard = ({ item, index }) => {
         return (

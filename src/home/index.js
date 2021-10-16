@@ -12,18 +12,10 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { theme } from '../theme';
 import { categories } from '../data';;
 
-import JobMatchedCard from '../components/JobMatchedCard';
+import JobMatchedCard from './JobMatchedCard';
 
 const FILTER_ICON_SIZE = 24;
 const SEARCH_ICON_SIZE = 26;
-
-const Header = () => {
-    return (
-        <View style={{ marginTop: 16 }}>
-            <MaterialIcons name='sort' size={28} color='black' />
-        </View>
-    );
-};
 
 const FilterButton = () => {
     return (
@@ -123,8 +115,6 @@ const JobCategoryCard = () => {
 const Home = () => {
     return (
         <View style={styles.container}>
-            <Header />
-
             <Text style={styles.title}>{`Find the World's most\nAmazing Jobs`}</Text>
 
             <Input />
@@ -139,11 +129,11 @@ const Home = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingTop: 20,
         paddingHorizontal: 30,
         backgroundColor: '#fff'
     },
     title: {
-        marginTop: 28,
         fontSize: 26,
         fontWeight: '600'
     },

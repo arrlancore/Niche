@@ -7,8 +7,11 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import Home from './home';
+import Job from './job';
+import Header from './components/Header';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +26,20 @@ const App = gestureHandlerRootHOC(() => {
                     <Stack.Screen
                         name="Home"
                         component={Home}
-                        options={{ headerShown: false }}
+                        options={{
+                            title: null,
+                            header: () => (<Header />),
+                            headerShadowVisible: false,
+                        }}
+                    />
+                    <Stack.Screen
+                        name='Job'
+                        component={Job}
+                        options={{
+                            title: null,
+                            header: () => (<Header />),
+                            headerShadowVisible: false
+                        }}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
