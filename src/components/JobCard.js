@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions, Image } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Image, TouchableWithoutFeedback } from 'react-native';
 import Animated, {
     useSharedValue,
     withSpring,
@@ -7,7 +7,7 @@ import Animated, {
     useAnimatedGestureHandler,
     runOnJS,
 } from 'react-native-reanimated';
-import { PanGestureHandler } from 'react-native-gesture-handler';
+import { PanGestureHandler, } from 'react-native-gesture-handler';
 import { theme } from '../theme';
 import { getRotationDegree, elevation_1, elevation_3 } from '../helpers';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -77,7 +77,13 @@ const JobCardFooter = ({ applied, hoursAgo }) => {
     );
 };
 
-const JobCard = ({ job, index, jobs, setJobs }) => {
+const JobCard = ({
+    item,
+    index,
+    jobs,
+    setJobs,
+    onJobCardPress
+}) => {
     const {
         title,
         applied,
@@ -86,70 +92,7 @@ const JobCard = ({ job, index, jobs, setJobs }) => {
         order,
         tags,
         color
-    } = job;
-    const x = useSharedValue(0);
-    const y = useSharedValue(0);
-
-    const updateJobsCards = () => {
-        const newJobs = jobs.slice(0, -1);
-        setTimeout(() => {
-            setJobs(newJobs.reverse());
-        }, 300);
-    };
-
-    const marginOffsetStyle = {
-        marginTop: index === 0 ? 30 : -230,
-    };
-
-    const gestureHandler = useAnimatedGestureHandler({
-        onStart: (_, ctx) => {
-            ctx.startX = x.value;
-            ctx.startY = y.value;
-        },
-        onActive: (event, ctx) => {
-            const x_offset = ctx.startX + event.translationX;
-            const y_offset = ctx.startY + event.translationY;
-
-            x.value = x_offset;
-            y.value = y_offset > 26 ? 26 : y_offset < -26 ? -26 : y_offset;
-        },
-        onEnd: (_) => {
-            if (x.value > 100) {
-                x.value = withSpring(SCR_WIDTH);
-                runOnJS(updateJobsCards)();
-                return;
-            }
-            if (x.value < -100) {
-                x.value = withSpring(-SCR_WIDTH);
-                runOnJS(updateJobsCards)();
-                return;
-            }
-            x.value = withSpring(0);
-            y.value = withSpring(0);
-        },
-    });
-
-    const degreeToRotate = getRotationDegree(index, jobs);
-
-    const animatedStyle = useAnimatedStyle(() => {
-        return {
-            transform: [
-                {
-                    translateX: x.value,
-                },
-                {
-                    translateY: y.value,
-                },
-                {
-                    rotate: degreeToRotate
-                }
-            ],
-        };
-    });
-
-    const isLastItem = jobs.length - 1 === index;
-    const shadow = isLastItem ? elevation_3 : elevation_1;
-    const opacity = isLastItem ? 1 : 1;
+    } = item;
 
     const renderTags = tags.map(tag => (
         <View
@@ -160,15 +103,11 @@ const JobCard = ({ job, index, jobs, setJobs }) => {
     ));
 
     return (
-        <PanGestureHandler onGestureEvent={gestureHandler}>
-            <Animated.View style={[
+        <TouchableWithoutFeedback onPress={onJobCardPress}>
+            <View style={[
                 styles.container,
-                marginOffsetStyle,
-                animatedStyle,
                 {
                     backgroundColor: color,
-                    opacity,
-                    ...shadow
                 }
             ]}>
                 <Text style={styles.company}>{company}</Text>
@@ -186,8 +125,8 @@ const JobCard = ({ job, index, jobs, setJobs }) => {
                     {...{ applied }}
                     {...{ hoursAgo }}
                 />
-            </Animated.View>
-        </PanGestureHandler>
+            </View>
+        </TouchableWithoutFeedback>
     );
 };
 
