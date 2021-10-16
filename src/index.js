@@ -6,45 +6,28 @@
  * @flow strict-local
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
     SafeAreaView,
     StatusBar,
     StyleSheet,
     Text,
-    useColorScheme,
     View,
     TextInput,
     TouchableOpacity,
     ScrollView,
-    Image,
-    Dimensions
 } from 'react-native';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { colors, theme } from './theme';
+import { theme } from './theme';
 
-import Animated, {
-    useSharedValue,
-    withSpring,
-    useAnimatedStyle,
-    useAnimatedGestureHandler,
-    runOnJS,
-} from 'react-native-reanimated';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
-import { jobsData, categories } from './data';
-import { getRotationDegree } from './helpers';
-import { elevation_1, elevation_3 } from './utils';
+import { categories } from './data';;
 
 import JobMatchedCard from './components/JobMatchedCard';
 
-const SCR_WIDTH = Dimensions.get('window').width;
-
 const FILTER_ICON_SIZE = 24;
 const SEARCH_ICON_SIZE = 26;
-const CLOCK_ICON_SIZE = 16;
-
-
 
 const Header = () => {
     return (
@@ -86,69 +69,6 @@ const CardTitle = ({ title }) => {
         <Text style={styles.subTitle}>{title}</Text>
     );
 };
-
-const JobStatus = ({ order }) => {
-    return (
-        <View style={{
-            marginTop: 20,
-            flexDirection: 'row',
-            alignItems: 'center'
-        }}>
-            <MaterialIcons name='access-time' size={CLOCK_ICON_SIZE} />
-            <Text style={{
-                marginLeft: 8,
-                fontWeight: '500'
-            }}>
-                <Text>{order.message}</Text>
-                <Text style={{
-                    fontWeight: '700'
-                }}>{' '}{order.countMsg}</Text>
-            </Text>
-        </View>
-    );
-};
-
-const JobCardFooter = ({ applied, hoursAgo }) => {
-    return (
-        <View style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginTop: 20
-        }}>
-            <View style={{
-                flexDirection: 'row',
-            }}>
-                {applied.map((person, i) => (
-                    <View key={`${i}`} style={{
-                        height: 32,
-                        width: 32,
-                        borderRadius: 32 / 2,
-                        borderWidth: 2,
-                        borderColor: '#fff',
-                        marginRight: -10
-                    }}>
-                        <Image
-                            source={person.img}
-                            style={{
-                                height: '100%',
-                                width: '100%',
-                                borderRadius: 32 / 2,
-                            }}
-                        />
-                    </View>
-                ))}
-            </View>
-
-            <Text style={{
-                fontSize: 14,
-                fontWeight: '500'
-            }}>{hoursAgo}</Text>
-        </View>
-    );
-};
-
-
 
 
 const CategoryCard = () => {
@@ -236,7 +156,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginHorizontal: 30
-        // flexDirection: ''
     },
     title: {
         marginTop: 28,
@@ -269,7 +188,6 @@ const styles = StyleSheet.create({
     categoryCardContainer: {
         marginTop: 30,
         marginHorizontal: -30,
-        // paddingHorizontal: 30
     },
     categoryCard: {
         paddingVertical: 16,
@@ -281,26 +199,3 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
-
-// let stack = [];
-
-// ops.forEach(op => {
-//   if (op == "C") {
-//     stack.pop();
-//     return;
-//   }
-
-//   if (op == "D") {
-//     stack.push(stack[stack.length - 1] * 2);
-//     return;
-//   }
-
-//   if (op == "+") {
-//     stack.push(stack[stack.length - 1] + stack[stack.length - 2]);
-//     return;
-//   }
-//   stack.push(Number(op));
-// })
-
-// result = stack.reduce((a, b) => a + b, 0);
