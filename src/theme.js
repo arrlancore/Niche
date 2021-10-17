@@ -1,6 +1,7 @@
 export const theme = {
     input: '#F9FAFA',
-    cardBackground: '#FDEDD2'
+    cardBackground: '#FDEDD2',
+    bg1: '#D1FAEB',
 };
 
 export const colors = [
