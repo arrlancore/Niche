@@ -7,7 +7,6 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import Home from './home';
 import Job from './job';
