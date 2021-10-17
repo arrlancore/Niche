@@ -1,5 +1,7 @@
 import { Platform } from 'react-native';
 
+export const POPUP_HEIGHT = 120;
+
 export const elevation_1 = {
     ...Platform.select({
         ios: {
