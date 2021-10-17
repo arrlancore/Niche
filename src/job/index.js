@@ -1,7 +1,13 @@
-import React from 'react';
-import { Text, View, StyleSheet, Dimensions } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {
+    Text,
+    View,
+    StyleSheet,
+} from 'react-native';
+import Popup from '../components/Popup';
+import { theme } from '../theme';
+import { POPUP_HEIGHT } from '../utils';
 
-const SCR_WIDTH = Dimensions.get('window').width;
 
 const JobInfo = () => (
     <View style={styles.jobInfoContainer}>
@@ -36,22 +42,21 @@ const JobDetails = () => (
     </View>
 );
 
-const JobAlert = () => {
-    return (
-        <View style={[styles.alertContainer, {
-            transform: [
-                { translateY: 0 }
-            ]
-        }]}>
-            <Text style={{ color: '#fff' }}>Similar Job Alert</Text>
-            <Text>Similar Job Alert</Text>
-        </View>
-    );
-};
 
 const Job = ({
     params,
 }) => {
+
+    const [showAlert, setShowAlert] = useState(false);
+    const [showSkillBadge, setShowSkillBadge] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShowAlert(true);
+            setShowSkillBadge(true);
+        }, 1000);
+    }, []);
+
     return (
         <View style={styles.container}>
 
@@ -59,7 +64,21 @@ const Job = ({
 
             <JobDetails />
 
-            <JobAlert />
+            <Popup
+                visible={showAlert}
+                title='Similar Job Alert'
+                description='Product designer, Typography'
+            />
+
+            <Popup
+                visible={showSkillBadge}
+                title='Similar Job Alert'
+                description='Product designer, Typography'
+                extraOffset={-72}
+                surface={theme.bg1}
+                zIndex={-1}
+                textColor='#000'
+            />
 
         </View>
     );
@@ -109,16 +128,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         fontSize: 14,
     },
-    alertContainer: {
-        position: 'absolute',
-        bottom: 0,
-        height: 90,
-        width: SCR_WIDTH,
-        backgroundColor: '#000',
-        borderTopLeftRadius: 28,
-        borderTopRightRadius: 28,
-        padding: 30,
-    }
+
 });
 
 export default Job;
