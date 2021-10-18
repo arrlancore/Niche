@@ -3,6 +3,7 @@ export const theme = {
     cardBackground: '#FDEDD2',
     bg1: '#D1FAEB',
     subText: '#6E7579',
+    border: '#ededed'
 };
 
 export const colors = [
