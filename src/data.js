@@ -6,6 +6,7 @@ export const jobsData = [
         logo: require('../assets/uber.png'),
         hoursAgo: '2 hours ago',
         category: 'Design',
+        location: '1600 Amphitheatre Parkway, Mountain View',
         applied: [
             {
                 img: require('../assets/image1.jpeg')
@@ -43,6 +44,7 @@ export const jobsData = [
         logo: require('../assets/linkedin.png'),
         hoursAgo: '4 hours ago',
         category: 'Network',
+        location: '1600 Amphitheatre Parkway, Mountain View',
         applied: [
             {
                 img: require('../assets/image1.jpeg')
@@ -65,7 +67,7 @@ export const jobsData = [
             countMsg: '24 applicants'
         },
         details: {
-            description: `We're a team of youthful, intelligent and dedicated creative who have an unrivaled energy and passion for crafting beautiful and meaningful products\nWe strive to follow all UX processes of ideation research and MVP for our product designs to enable output that is both aesthetic and strategic`,
+            description: `We're a team of youthful, intelligent and dedicated creative who have an unrivaled energy and passion for crafting beautiful and meaningful products\n\nWe strive to follow all UX processes of ideation research and MVP for our product designs to enable output that is both aesthetic and strategic`,
             responsibilities: `Keep the interface beautiful and easy to use`,
             jobType: 'Full-Time',
             salary: `$90,000 - $150,000 a year`,
@@ -79,6 +81,7 @@ export const jobsData = [
         logo: require('../assets/youtube.jpg'),
         hoursAgo: '6 hours ago',
         category: 'Security',
+        location: '1600 Amphitheatre Parkway, Mountain View',
         applied: [
             {
                 img: require('../assets/image1.jpeg')
@@ -101,7 +104,7 @@ export const jobsData = [
             countMsg: '13 applicants'
         },
         details: {
-            description: `We're a team of youthful, intelligent and dedicated creative who have an unrivaled energy and passion for crafting beautiful and meaningful products\nWe strive to follow all UX processes of ideation research and MVP for our product designs to enable output that is both aesthetic and strategic`,
+            description: `We're a team of youthful, intelligent and dedicated creative who have an unrivaled energy and passion for crafting beautiful and meaningful products\n\nWe strive to follow all UX processes of ideation research and MVP for our product designs to enable output that is both aesthetic and strategic`,
             responsibilities: `Keep the interface beautiful and easy to use`,
             jobType: 'Full-Time',
             salary: `$90,000 - $150,000 a year`,

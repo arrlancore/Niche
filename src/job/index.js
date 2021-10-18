@@ -3,7 +3,8 @@ import {
     Text,
     View,
     StyleSheet,
-    ScrollView
+    ScrollView,
+    Image
 } from 'react-native';
 import Popup from '../components/Popup';
 import { theme } from '../theme';
@@ -19,15 +20,15 @@ const getSectionTitle = (text) => {
 };
 
 
-const JobInfo = () => (
+const JobInfo = ({ job }) => (
     <View style={styles.jobInfoContainer}>
-        <View style={styles.logo} />
+        <Image source={job.logo} style={styles.logo} />
 
-        <Text style={styles.jobTitle}>Product Designer</Text>
+        <Text style={styles.jobTitle}>{job.title}</Text>
 
-        <Text style={styles.company}>Microsoft .Inc</Text>
+        <Text style={styles.company}>{job.company}</Text>
 
-        <Text style={styles.location}>1600 Amphitheatre Parkway, Mountain View</Text>
+        <Text style={styles.location}>{job.location}</Text>
     </View>
 );
 
@@ -75,13 +76,13 @@ const Job = ({
         setTimeout(() => {
             setShowAlert(true);
             setShowSkillBadge(true);
-        }, 1000);
+        }, 1500);
     }, []);
 
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollView}>
-                <JobInfo />
+                <JobInfo {...{ job }} />
 
                 <JobDetails details={job.details} />
             </ScrollView>
@@ -119,14 +120,14 @@ const styles = StyleSheet.create({
     },
     jobInfoContainer: {
         height: 230,
-        // backgroundColor: 'yellow',
         justifyContent: 'center',
         alignItems: 'center',
     },
     logo: {
         height: 40,
         width: 40,
-        // backgroundColor: 'blue'
+        resizeMode: 'contain',
+        borderRadius: 10
     },
     jobTitle: {
         marginTop: 14,
@@ -144,7 +145,6 @@ const styles = StyleSheet.create({
     },
     jobDetailsContainer: {
         flex: 1,
-        // backgroundColor: 'green',
         paddingTop: 20,
     },
     sectionTitle: {
