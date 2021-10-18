@@ -2,8 +2,13 @@ export const theme = {
     input: '#F9FAFA',
     cardBackground: '#FDEDD2',
     bg1: '#D1FAEB',
-    subText: '#6E7579',
-    border: '#ededed'
+    border: '#ededed',
+    text_main: '#000',
+    text_secondary: '#0F142F',
+    text_tertiary: '#6E7579',
+    text_placeholder: '#9E9FA0',
+    icon_main: '#1A1824',
+
 };
 
 export const colors = [

@@ -164,16 +164,19 @@ const styles = StyleSheet.create({
     jobTitle: {
         marginTop: 14,
         fontSize: 22,
-        fontWeight: '700'
+        fontWeight: '700',
+        color: theme.text_main
     },
     company: {
         marginTop: 12,
         fontSize: 16,
-        fontWeight: '500'
+        fontWeight: '500',
+        color: theme.text_secondary
     },
     location: {
         marginTop: 12,
         fontSize: 13,
+        color: theme.text_tertiary
     },
     jobDetailsContainer: {
         flex: 1,
@@ -181,12 +184,14 @@ const styles = StyleSheet.create({
     },
     sectionTitle: {
         fontSize: 18,
-        fontWeight: '600'
+        fontWeight: '600',
+        color: theme.text_secondary
     },
     sectionDescr: {
         marginTop: 10,
         fontSize: 14,
-        color: theme.subText
+        color: theme.text_tertiary,
+        lineHeight: 19
     },
     badgeButton: {
         padding: 8,

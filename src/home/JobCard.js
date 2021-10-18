@@ -19,15 +19,17 @@ const JobStatus = ({ order }) => {
             alignItems: 'center'
         }}>
             <View style={styles.clock}>
-                <ClockIcon fill='#000' />
+                <ClockIcon fill={theme.icon_main} />
             </View>
             <Text style={{
-                marginLeft: 8,
-                fontWeight: '500'
+                marginLeft: 5,
+                fontWeight: '400',
+                color: theme.text_secondary,
+                fontSize: 14
             }}>
-                <Text>{order.message}</Text>
+                {order.message}
                 <Text style={{
-                    fontWeight: '700'
+                    fontWeight: '600',
                 }}>{' '}{order.countMsg}</Text>
             </Text>
         </View>
@@ -69,7 +71,8 @@ const JobCardFooter = ({ applied, hoursAgo }) => {
 
             <Text style={{
                 fontSize: 14,
-                fontWeight: '500'
+                fontWeight: '400',
+                color: theme.text_secondary,
             }}>{hoursAgo}</Text>
         </View>
     );
@@ -140,12 +143,14 @@ const styles = StyleSheet.create({
     },
     company: {
         fontSize: 14,
-        fontWeight: '500'
+        fontWeight: '500',
+        color: theme.text_secondary
     },
     title: {
         fontSize: 18,
         fontWeight: '700',
-        marginTop: 5
+        marginTop: 5,
+        color: theme.text_main
     },
     tagsContainer: {
         flexDirection: 'row',
@@ -160,7 +165,8 @@ const styles = StyleSheet.create({
     },
     tag: {
         fontSize: 11,
-        fontWeight: '600'
+        fontWeight: '600',
+        color: theme.text_secondary
     },
     logo: {
         height: 25,

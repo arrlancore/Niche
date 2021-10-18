@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { theme } from '../theme';
 
 const CardTitle = ({ title }) => {
     return (
@@ -25,7 +26,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
-        fontWeight: '600'
+        fontWeight: '600',
+        color: theme.text_secondary
     }
 });
 

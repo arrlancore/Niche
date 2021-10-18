@@ -14,6 +14,7 @@ import MedicalIcon from '../../assets/medical.svg';
 import EngineeringIcon from '../../assets/engineering.svg';
 import { cardBackgroundColor } from '../helpers';
 import { elevation_1, elevation_3 } from '../utils';
+import { theme } from '../theme';
 
 const CategoryIcon = {
     'Design': <DesignIcon />,
@@ -87,12 +88,14 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 12,
-        marginTop: 10
+        marginTop: 10,
+        color: theme.text_secondary
     },
     count: {
         fontSize: 16,
         marginTop: 8,
-        fontWeight: '700'
+        fontWeight: '700',
+        color: theme.text_main
     },
     button: {
         paddingVertical: 8,
@@ -106,6 +109,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 9,
         fontWeight: '500',
+        color: theme.text_secondary
     }
 });
 

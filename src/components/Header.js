@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import MenuBar from '../../assets/menu-bar.svg';
 import BackIcon from '../../assets/arrow-left.svg';
-// import Animated from 'react-native-reanimated';
+import { theme } from '../theme';
 
 const HeaderIcon = {
-    'home': <MenuBar height={25} width={25} fill='#000' />,
-    'job': <BackIcon height={25} width={25} fill='#000' />
+    'home': <MenuBar height={25} width={25} fill={theme.icon_main} />,
+    'job': <BackIcon height={25} width={25} fill={theme.icon_main} />
 };
 
 const Header = (props) => {
