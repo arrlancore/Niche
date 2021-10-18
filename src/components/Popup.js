@@ -15,6 +15,7 @@ const SCR_WIDTH = Dimensions.get('window').width;
 const Popup = ({
     visible,
     title,
+    action,
     description,
     extraOffset = 18,
     surface = '#000',
@@ -48,9 +49,7 @@ const Popup = ({
                     <Text style={[styles.description, textStyle]}>{description}</Text>
                 </View>
 
-                <TouchableOpacity>
-                    <Text>BUTTON</Text>
-                </TouchableOpacity>
+                {action}
             </View>
         </Animated.View>
     );

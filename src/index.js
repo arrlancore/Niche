@@ -5,14 +5,14 @@ import {
     StyleSheet
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
 import Home from './home';
 import Job from './job';
 import Header from './components/Header';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const App = gestureHandlerRootHOC(() => {
 
@@ -23,20 +23,22 @@ const App = gestureHandlerRootHOC(() => {
             <NavigationContainer>
                 <Stack.Navigator>
                     <Stack.Screen
-                        name="Home"
+                        name="home"
                         component={Home}
                         options={{
+                            headerMode: 'float',
                             title: null,
-                            header: () => (<Header />),
+                            header: (props) => (<Header {...props} />),
                             headerShadowVisible: false,
                         }}
                     />
                     <Stack.Screen
-                        name='Job'
+                        name='job'
                         component={Job}
                         options={{
+                            headerMode: 'float',
                             title: null,
-                            header: () => (<Header />),
+                            header: (props) => (<Header {...props} />),
                             headerShadowVisible: false
                         }}
                     />

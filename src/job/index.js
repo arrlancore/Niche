@@ -4,11 +4,14 @@ import {
     View,
     StyleSheet,
     ScrollView,
-    Image
+    Image,
+    TouchableOpacity
 } from 'react-native';
 import Popup from '../components/Popup';
 import { theme } from '../theme';
-import { POPUP_HEIGHT } from '../utils';
+import { elevation_3, elevation_6, POPUP_HEIGHT } from '../utils';
+import Arrow from '../../assets/arrow-left.svg';
+import Toggle from '../components/Toggle';
 
 const getSectionTitle = (text) => {
     if (text === 'description') return 'Job Description';
@@ -22,7 +25,9 @@ const getSectionTitle = (text) => {
 
 const JobInfo = ({ job }) => (
     <View style={styles.jobInfoContainer}>
-        <Image source={job.logo} style={styles.logo} />
+        <View style={styles.logoContainer}>
+            <Image source={job.logo} style={styles.logo} />
+        </View>
 
         <Text style={styles.jobTitle}>{job.title}</Text>
 
@@ -59,7 +64,6 @@ const JobDetails = ({ details }) => {
                     </View>
                 );
             })}
-
         </View>
     );
 };
@@ -71,19 +75,41 @@ const Job = ({
 
     const [showAlert, setShowAlert] = useState(false);
     const [showSkillBadge, setShowSkillBadge] = useState(false);
+    const [jobAlert, setJobAlert] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             setShowAlert(true);
             setShowSkillBadge(true);
-        }, 1500);
+        }, 1600);
+
+        return () => {
+            clearTimeout(timer);
+        };
+
     }, []);
+
+    const onJobAlert = () => {
+        setJobAlert(value => !value);
+    };
+
+    const BadgeButton = (
+        <TouchableOpacity style={styles.badgeButton}>
+            <Arrow height={18} width={18} fill="#000" />
+        </TouchableOpacity>
+    );
+
+    const ToggleButton = (
+        <Toggle
+            onPress={onJobAlert}
+            active={jobAlert}
+        />
+    );
 
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollView}>
                 <JobInfo {...{ job }} />
-
                 <JobDetails details={job.details} />
             </ScrollView>
 
@@ -91,6 +117,7 @@ const Job = ({
                 visible={showAlert}
                 title='Similar Job Alert'
                 description='Product designer, Typography'
+                action={ToggleButton}
                 zIndex={2}
             />
 
@@ -98,6 +125,7 @@ const Job = ({
                 visible={showSkillBadge}
                 title='Similar Job Alert'
                 description='Product designer, Typography'
+                action={BadgeButton}
                 extraOffset={-72}
                 surface={theme.bg1}
                 zIndex={1}
@@ -111,7 +139,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-
     },
     scrollView: {
         flexGrow: 1,
@@ -123,11 +150,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    logoContainer: {
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        ...elevation_6,
+    },
     logo: {
         height: 40,
         width: 40,
         resizeMode: 'contain',
-        borderRadius: 10
+        borderRadius: 10,
     },
     jobTitle: {
         marginTop: 14,
@@ -156,6 +188,15 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: theme.subText
     },
+    badgeButton: {
+        padding: 8,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        ...elevation_3,
+        transform: [{
+            rotate: '180deg',
+        }],
+    }
 
 });
 

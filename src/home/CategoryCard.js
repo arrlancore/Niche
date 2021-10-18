@@ -13,6 +13,7 @@ import SecurityIcon from '../../assets/security.svg';
 import MedicalIcon from '../../assets/medical.svg';
 import EngineeringIcon from '../../assets/engineering.svg';
 import { cardBackgroundColor } from '../helpers';
+import { elevation_1, elevation_3 } from '../utils';
 
 const CategoryIcon = {
     'Design': <DesignIcon />,
@@ -98,7 +99,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         backgroundColor: '#fff',
         borderRadius: 6,
-        marginTop: 8
+        marginTop: 8,
+        ...elevation_1
     },
     buttonText: {
         textAlign: 'center',

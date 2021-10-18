@@ -9,6 +9,7 @@ import {
 import { theme } from '../theme';
 import { cardBackgroundColor } from '../helpers';
 import ClockIcon from '../../assets/clock.svg';
+import { elevation_5 } from '../utils';
 
 const JobStatus = ({ order }) => {
     return (
@@ -135,6 +136,8 @@ const styles = StyleSheet.create({
         paddingVertical: 22,
         paddingHorizontal: 26,
         marginTop: 30,
+        marginBottom: 8,
+        ...elevation_5
     },
     company: {
         fontSize: 14,

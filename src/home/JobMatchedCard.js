@@ -18,7 +18,7 @@ const JobMatchedCard = () => {
     const navigation = useNavigation();
 
     const onJobCardPress = (job) => {
-        navigation.navigate('Job', { job });
+        navigation.navigate('job', { job });
     };
 
     const renderCard = ({ item }) => {
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     title: {
-        fontSize: 22,
-        fontWeight: '600'
+        fontSize: 20,
+        fontWeight: '500'
     }
 });
 

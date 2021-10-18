@@ -5,6 +5,7 @@ import {
     View,
     TextInput,
     TouchableOpacity,
+    ScrollView
 } from 'react-native';
 
 import { theme } from '../theme';
@@ -13,11 +14,12 @@ import Filter from '../../assets/filter2.svg';
 
 import JobMatchedCard from './JobMatchedCard';
 import CategoryCard from './CategoryCard';
+import { elevation_1 } from '../utils';
 
 const FilterButton = () => {
     return (
         <TouchableOpacity style={styles.filter}>
-            <Filter height={23} width={23} />
+            <Filter height={20} width={20} />
         </TouchableOpacity>
     );
 };
@@ -40,7 +42,6 @@ const Input = () => {
     );
 };
 
-
 const CardTitle = ({ title }) => {
     return (
         <Text style={styles.subTitle}>{title}</Text>
@@ -58,28 +59,35 @@ const JobCategoryCard = () => {
 
 const Home = () => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>{`Find the World's most\nAmazing Jobs`}</Text>
+        <ScrollView style={styles.outerContainer} contentContainerStyle={styles.container}>
+            <Text style={styles.title}>
+                Find the World's most{'\n'}
+                <Text style={{ fontWeight: '700' }}>Amazing Jobs</Text>
+            </Text>
 
             <Input />
 
             <JobMatchedCard />
 
             <JobCategoryCard />
-        </View>
+        </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
+    outerContainer: {
+        flexGrow: 1,
+        backgroundColor: '#fff',
+    },
     container: {
-        flex: 1,
+        flexGrow: 1,
         paddingTop: 20,
+        paddingBottom: 30,
         paddingHorizontal: 30,
-        backgroundColor: '#fff'
     },
     title: {
         fontSize: 26,
-        fontWeight: '600'
+        fontWeight: '400'
     },
     inputContainer: {
         flexDirection: 'row',
@@ -87,10 +95,12 @@ const styles = StyleSheet.create({
         backgroundColor: theme.input,
         paddingHorizontal: 16,
         borderRadius: 10,
-        marginTop: 28
+        marginTop: 28,
+        borderWidth: StyleSheet.hairlineWidth,
+        borderColor: theme.border
     },
     subContainer: {
-        marginTop: 30,
+        marginTop: 28,
     },
     subTitle: {
         fontSize: 22,
@@ -98,8 +108,9 @@ const styles = StyleSheet.create({
     },
     filter: {
         backgroundColor: '#fff',
-        padding: 5,
-        borderRadius: 10
+        padding: 8,
+        borderRadius: 10,
+        ...elevation_1
     }
 });
 
