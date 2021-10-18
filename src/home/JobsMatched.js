@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import { jobsData } from '../data';
 import JobCard from './JobCard';
 import Carousel from 'react-native-snap-carousel';
@@ -8,13 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 const sliderWidth = Dimensions.get('window').width;
 const itemWidth = sliderWidth * .85;
 
-const CardTitle = ({ title }) => {
-    return (
-        <Text style={styles.title}>{title}</Text>
-    );
-};
-
-const JobMatchedCard = () => {
+const JobsMatched = () => {
     const navigation = useNavigation();
 
     const onJobCardPress = (job) => {
@@ -31,24 +25,22 @@ const JobMatchedCard = () => {
     };
 
     return (
-        <View style={[styles.container]}>
-            <CardTitle title='Job Matched' />
-            <View style={{ alignItems: 'center' }}>
-                <Carousel
-                    layout={'stack'}
-                    data={jobsData}
-                    renderItem={renderCard}
-                    sliderWidth={sliderWidth}
-                    itemWidth={itemWidth}
-                />
-            </View>
+        <View style={styles.carousel}>
+            <Carousel
+                layout={'stack'}
+                data={jobsData}
+                renderItem={renderCard}
+                sliderWidth={sliderWidth}
+                itemWidth={itemWidth}
+            />
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        marginTop: 30,
+    carousel: {
+        marginHorizontal: -30,
+        marginTop: 20
     },
     title: {
         fontSize: 20,
@@ -56,4 +48,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default JobMatchedCard;
+export default JobsMatched;

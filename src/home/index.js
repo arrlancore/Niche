@@ -12,9 +12,10 @@ import { theme } from '../theme';
 import Search from '../../assets/search.svg';
 import Filter from '../../assets/filter2.svg';
 
-import JobMatchedCard from './JobMatchedCard';
-import CategoryCard from './CategoryCard';
+import JobsMatched from './JobsMatched';
 import { elevation_1 } from '../utils';
+import Section from './Section';
+import Categories from './Categories';
 
 const FilterButton = () => {
     return (
@@ -42,21 +43,6 @@ const Input = () => {
     );
 };
 
-const CardTitle = ({ title }) => {
-    return (
-        <Text style={styles.subTitle}>{title}</Text>
-    );
-};
-
-const JobCategoryCard = () => {
-    return (
-        <View style={styles.subContainer}>
-            <CardTitle title='Job Category' />
-            <CategoryCard />
-        </View>
-    );
-};
-
 const Home = () => {
     return (
         <ScrollView style={styles.outerContainer} contentContainerStyle={styles.container}>
@@ -67,9 +53,13 @@ const Home = () => {
 
             <Input />
 
-            <JobMatchedCard />
+            <Section title='Jobs Matched'>
+                <JobsMatched />
+            </Section>
 
-            <JobCategoryCard />
+            <Section title='Job Category'>
+                <Categories />
+            </Section>
         </ScrollView>
     );
 };
@@ -98,13 +88,6 @@ const styles = StyleSheet.create({
         marginTop: 28,
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: theme.border
-    },
-    subContainer: {
-        marginTop: 28,
-    },
-    subTitle: {
-        fontSize: 22,
-        fontWeight: '600'
     },
     filter: {
         backgroundColor: '#fff',

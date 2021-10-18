@@ -135,7 +135,6 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         paddingVertical: 22,
         paddingHorizontal: 26,
-        marginTop: 30,
         marginBottom: 8,
         ...elevation_5
     },
