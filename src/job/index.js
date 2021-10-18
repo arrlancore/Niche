@@ -3,10 +3,20 @@ import {
     Text,
     View,
     StyleSheet,
+    ScrollView
 } from 'react-native';
 import Popup from '../components/Popup';
 import { theme } from '../theme';
 import { POPUP_HEIGHT } from '../utils';
+
+const getSectionTitle = (text) => {
+    if (text === 'description') return 'Job Description';
+    if (text === 'responsibilities') return 'Responsibilities';
+    if (text === 'jobType') return 'Job Type';
+    if (text === 'salary') return 'Salary';
+    if (text === 'NumOfHires') return 'Number of Hires';
+    return '--';
+};
 
 
 const JobInfo = () => (
@@ -33,19 +43,30 @@ const Section = ({
     );
 };
 
-const JobDetails = () => (
-    <View style={styles.jobDetailsContainer}>
-        <Section
-            title='Job Descriptions'
-            description='bla bla bla bla bla'
-        />
-    </View>
-);
+const JobDetails = ({ details }) => {
+    return (
+        <View style={styles.jobDetailsContainer}>
+            {Object.entries(details).map(([title, description], index) => {
+                const hasSpacer = details.length - 1 !== index;
+                return (
+                    <View key={`${index}`}>
+                        <Section
+                            title={getSectionTitle(title)}
+                            description={description}
+                        />
+                        {hasSpacer && <View style={{ height: 24 }} />}
+                    </View>
+                );
+            })}
 
+        </View>
+    );
+};
 
 const Job = ({
-    params,
+    route
 }) => {
+    const { job } = route.params;
 
     const [showAlert, setShowAlert] = useState(false);
     const [showSkillBadge, setShowSkillBadge] = useState(false);
@@ -59,15 +80,17 @@ const Job = ({
 
     return (
         <View style={styles.container}>
+            <ScrollView contentContainerStyle={styles.scrollView}>
+                <JobInfo />
 
-            <JobInfo />
-
-            <JobDetails />
+                <JobDetails details={job.details} />
+            </ScrollView>
 
             <Popup
                 visible={showAlert}
                 title='Similar Job Alert'
                 description='Product designer, Typography'
+                zIndex={2}
             />
 
             <Popup
@@ -76,10 +99,9 @@ const Job = ({
                 description='Product designer, Typography'
                 extraOffset={-72}
                 surface={theme.bg1}
-                zIndex={-1}
+                zIndex={1}
                 textColor='#000'
             />
-
         </View>
     );
 };
@@ -87,14 +109,19 @@ const Job = ({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff',
+
+    },
+    scrollView: {
+        flexGrow: 1,
         paddingHorizontal: 30,
-        backgroundColor: '#fff'
+        paddingBottom: (POPUP_HEIGHT * 2) - 50
     },
     jobInfoContainer: {
-        height: '26%',
+        height: 230,
         // backgroundColor: 'yellow',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     logo: {
         height: 40,
@@ -118,7 +145,7 @@ const styles = StyleSheet.create({
     jobDetailsContainer: {
         flex: 1,
         // backgroundColor: 'green',
-        paddingVertical: 20
+        paddingTop: 20,
     },
     sectionTitle: {
         fontSize: 18,
@@ -127,6 +154,7 @@ const styles = StyleSheet.create({
     sectionDescr: {
         marginTop: 10,
         fontSize: 14,
+        color: theme.subText
     },
 
 });

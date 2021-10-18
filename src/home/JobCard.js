@@ -82,6 +82,7 @@ const JobCard = ({
 }) => {
     const {
         title,
+        logo,
         applied,
         company,
         hoursAgo,
@@ -99,14 +100,18 @@ const JobCard = ({
     ));
 
     return (
-        <TouchableWithoutFeedback onPress={onJobCardPress}>
+        <TouchableWithoutFeedback onPress={() => onJobCardPress(item)}>
             <View style={[
                 styles.container,
                 {
-                    backgroundColor: color,
+                    backgroundColor: theme.cardBackground,
                 }
             ]}>
-                <Text style={styles.company}>{company}</Text>
+                <View style={styles.row}>
+                    <Text style={styles.company}>{company}</Text>
+
+                    <Image source={logo} style={styles.logo} />
+                </View>
 
                 <Text style={styles.title}>{title}</Text>
 
@@ -142,7 +147,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         fontWeight: '700',
-        marginTop: 12
+        marginTop: 5
     },
     tagsContainer: {
         flexDirection: 'row',
@@ -158,8 +163,18 @@ const styles = StyleSheet.create({
     tag: {
         fontSize: 11,
         fontWeight: '600'
+    },
+    logo: {
+        height: 25,
+        width: 25,
+        borderRadius: 5,
+        resizeMode: 'contain'
+    },
+    row: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     }
-
 });
 
 export default JobCard;

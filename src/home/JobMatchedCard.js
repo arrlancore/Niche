@@ -18,8 +18,8 @@ const JobMatchedCard = () => {
     const [jobs, setJobs] = useState(jobsData);
     const navigation = useNavigation();
 
-    const onJobCardPress = () => {
-        navigation.navigate('Job');
+    const onJobCardPress = (job) => {
+        navigation.navigate('Job', { job });
     };
 
     const renderCard = ({ item, index }) => {

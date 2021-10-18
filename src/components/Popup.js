@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import {
+    View,
     StyleSheet,
     Text,
-    Dimensions
+    Dimensions,
+    TouchableOpacity
 } from 'react-native';
 import Animated from 'react-native-reanimated';
 import usePopupAnimate from '../hooks/usePopupAnimate';
@@ -43,13 +45,24 @@ const Popup = ({
             styles.container,
             bgColorStyle,
             animate]}>
-            <Text style={[styles.title, textStyle]}>{title}</Text>
-            <Text style={[styles.description, textStyle]}>{description}</Text>
+            <View style={styles.innerContainer}>
+                <View style={styles.flexOne}>
+                    <Text style={[styles.title, textStyle]}>{title}</Text>
+                    <Text style={[styles.description, textStyle]}>{description}</Text>
+                </View>
+
+                <TouchableOpacity>
+                    <Text>BUTTON</Text>
+                </TouchableOpacity>
+            </View>
         </Animated.View>
     );
 };
 
 const styles = StyleSheet.create({
+    flexOne: {
+        flex: 1,
+    },
     container: {
         position: 'absolute',
         bottom: 0,
@@ -57,14 +70,19 @@ const styles = StyleSheet.create({
         width: SCR_WIDTH,
         borderTopLeftRadius: 28,
         borderTopRightRadius: 28,
-        // borderRadius: 22,
         padding: 30,
     },
+    innerContainer: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
     title: {
-        color: '#fff'
+        fontSize: 16,
+        fontWeight: '500'
     },
     description: {
-        color: '#fff'
+        fontSize: 12,
+        marginTop: 6
     }
 });
 

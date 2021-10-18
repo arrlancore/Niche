@@ -3,9 +3,10 @@ import { colors } from './theme';
 
 export const jobsData = [
     {
-        company: 'Microsoft .Inc',
+        company: 'Uber Technologies Inc',
         title: 'Sr. Product Designer',
         tags: ['User Interface', 'User Research / Flow'],
+        logo: require('../assets/uber.png'),
         hoursAgo: '6 hours ago',
         applied: [
             {
@@ -31,11 +32,58 @@ export const jobsData = [
         color: function () {
             return colors[getRandomColorIndex()];
         }(),
+        details: {
+            description: `We're a team of youthful, intelligent and dedicated creative who have an unrivaled energy and passion for crafting beautiful and meaningful products\n\nWe strive to follow all UX processes of ideation research and MVP for our product designs to enable output that is both aesthetic and strategic`,
+            responsibilities: `Keep the interface beautiful and easy to use`,
+            jobType: 'Full-Time',
+            salary: `$90,000 - $150,000 a year`,
+            NumOfHires: 2,
+        }
+
+    },
+    {
+        company: 'LinkedIn Corporation',
+        title: 'Talent Aquisition Manager',
+        tags: ['User Interface', 'User Research / Flow'],
+        logo: require('../assets/linkedin.png'),
+        hoursAgo: '6 hours ago',
+        applied: [
+            {
+                img: require('../assets/image1.jpeg')
+            },
+            {
+                img: require('../assets/image2.jpeg')
+            },
+            {
+                img: require('../assets/image3.jpeg')
+            },
+            {
+                img: require('../assets/image4.jpeg')
+            },
+            {
+                img: require('../assets/image2.jpeg')
+            }
+        ],
+        order: {
+            message: 'Be in the first',
+            countMsg: '31 applicants'
+        },
+        color: function () {
+            return colors[getRandomColorIndex()];
+        }(),
+        details: {
+            description: `We're a team of youthful, intelligent and dedicated creative who have an unrivaled energy and passion for crafting beautiful and meaningful products\nWe strive to follow all UX processes of ideation research and MVP for our product designs to enable output that is both aesthetic and strategic`,
+            responsibilities: `Keep the interface beautiful and easy to use`,
+            jobType: 'Full-Time',
+            salary: `$90,000 - $150,000 a year`,
+            NumOfHires: 2,
+        }
     },
     {
         company: 'Google',
-        title: 'Sr. Software Architect',
+        title: 'Lead Software Engineer',
         tags: ['User Interface', 'User Research / Flow'],
+        logo: require('../assets/youtube.jpg'),
         hoursAgo: '6 hours ago',
         applied: [
             {
@@ -61,36 +109,13 @@ export const jobsData = [
         color: function () {
             return colors[getRandomColorIndex()];
         }(),
-    },
-    {
-        company: 'YouTube .Inc',
-        title: 'HR Manager',
-        tags: ['User Interface', 'User Research / Flow'],
-        hoursAgo: '6 hours ago',
-        applied: [
-            {
-                img: require('../assets/image1.jpeg')
-            },
-            {
-                img: require('../assets/image2.jpeg')
-            },
-            {
-                img: require('../assets/image3.jpeg')
-            },
-            {
-                img: require('../assets/image4.jpeg')
-            },
-            {
-                img: require('../assets/image2.jpeg')
-            }
-        ],
-        order: {
-            message: 'Be in the first',
-            countMsg: '31 applicants'
-        },
-        color: function () {
-            return colors[getRandomColorIndex()];
-        }(),
+        details: {
+            description: `We're a team of youthful, intelligent and dedicated creative who have an unrivaled energy and passion for crafting beautiful and meaningful products\nWe strive to follow all UX processes of ideation research and MVP for our product designs to enable output that is both aesthetic and strategic`,
+            responsibilities: `Keep the interface beautiful and easy to use`,
+            jobType: 'Full-Time',
+            salary: `$90,000 - $150,000 a year`,
+            NumOfHires: 2,
+        }
     }
 ];
 
