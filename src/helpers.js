@@ -1,20 +1,17 @@
-import { colors } from './theme';
+export const getCategoryColor = (categoryName) => {
+    const categoriesColor = {
+        'Design': '#ffece0',
+        'Network': '#d9edff',
+        'Security': '#ffe3e3',
+        'Medical': '#ffe6d9',
+        'Engineering': '#FDEDD2',
+    };
 
-export const getRandomColorIndex = () => {
-    return Math.floor(Math.random() * colors.length);
+    return categoriesColor[categoryName];
 };
 
-export const degreeToRadian = (degrees) => {
-    return degrees * (Math.PI / 180);
-};
-
-export const isOdd = (num) => {
-    return num % 2;
-};
-
-export const getRotationDegree = (index, arr) => {
-    const lastItem = arr.length - 1;
-    if (index === lastItem) return '0deg';
-    if (isOdd(index)) return '4deg';
-    return '-4deg';
+export const cardBackgroundColor = (categoryName) => {
+    return {
+        backgroundColor: getCategoryColor(categoryName)
+    };
 };

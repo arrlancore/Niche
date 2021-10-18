@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { jobsData } from '../data';
 import JobCard from './JobCard';
@@ -15,20 +15,16 @@ const CardTitle = ({ title }) => {
 };
 
 const JobMatchedCard = () => {
-    const [jobs, setJobs] = useState(jobsData);
     const navigation = useNavigation();
 
     const onJobCardPress = (job) => {
         navigation.navigate('Job', { job });
     };
 
-    const renderCard = ({ item, index }) => {
+    const renderCard = ({ item }) => {
         return (
             <JobCard
                 {...{ item }}
-                {...{ index }}
-                {...{ jobs }}
-                {...{ setJobs }}
                 {...{ onJobCardPress }}
             />
         );
@@ -40,16 +36,10 @@ const JobMatchedCard = () => {
             <View style={{ alignItems: 'center' }}>
                 <Carousel
                     layout={'stack'}
-                    data={jobs}
+                    data={jobsData}
                     renderItem={renderCard}
                     sliderWidth={sliderWidth}
                     itemWidth={itemWidth}
-                // scrollInterpolator={scrollInterpolator}
-                // slideInterpolatedStyle={animatedStyles}
-                // useScrollView={true}
-                // contentContainerCustomStyle={{
-                //     height: 300
-                // }}
                 />
             </View>
         </View>
@@ -59,7 +49,6 @@ const JobMatchedCard = () => {
 const styles = StyleSheet.create({
     container: {
         marginTop: 30,
-        // height: 300
     },
     title: {
         fontSize: 22,

@@ -16,14 +16,11 @@ const Popup = ({
     visible,
     title,
     description,
-    // height,
     extraOffset = 18,
     surface = '#000',
     zIndex = 0,
     textColor = '#fff',
 }) => {
-
-
 
     const { show, animate } = usePopupAnimate({ to: extraOffset });
 

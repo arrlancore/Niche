@@ -7,9 +7,8 @@ import {
     TouchableWithoutFeedback
 } from 'react-native';
 import { theme } from '../theme';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-
-const CLOCK_ICON_SIZE = 16;
+import { cardBackgroundColor } from '../helpers';
+import ClockIcon from '../../assets/clock.svg';
 
 const JobStatus = ({ order }) => {
     return (
@@ -18,7 +17,9 @@ const JobStatus = ({ order }) => {
             flexDirection: 'row',
             alignItems: 'center'
         }}>
-            <MaterialIcons name='access-time' size={CLOCK_ICON_SIZE} />
+            <View style={styles.clock}>
+                <ClockIcon fill='#000' />
+            </View>
             <Text style={{
                 marginLeft: 8,
                 fontWeight: '500'
@@ -75,20 +76,17 @@ const JobCardFooter = ({ applied, hoursAgo }) => {
 
 const JobCard = ({
     item,
-    index,
-    jobs,
-    setJobs,
     onJobCardPress
 }) => {
     const {
         title,
+        category,
         logo,
         applied,
         company,
         hoursAgo,
         order,
         tags,
-        color
     } = item;
 
     const renderTags = tags.map(tag => (
@@ -103,9 +101,7 @@ const JobCard = ({
         <TouchableWithoutFeedback onPress={() => onJobCardPress(item)}>
             <View style={[
                 styles.container,
-                {
-                    backgroundColor: theme.cardBackground,
-                }
+                cardBackgroundColor(category)
             ]}>
                 <View style={styles.row}>
                     <Text style={styles.company}>{company}</Text>
@@ -174,6 +170,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
+    },
+    clock: {
+        height: 16,
+        width: 16,
     }
 });
 

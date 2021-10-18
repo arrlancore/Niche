@@ -1,13 +1,11 @@
-import { getRandomColorIndex } from './helpers';
-import { colors } from './theme';
-
 export const jobsData = [
     {
         company: 'Uber Technologies Inc',
         title: 'Sr. Product Designer',
         tags: ['User Interface', 'User Research / Flow'],
         logo: require('../assets/uber.png'),
-        hoursAgo: '6 hours ago',
+        hoursAgo: '2 hours ago',
+        category: 'Design',
         applied: [
             {
                 img: require('../assets/image1.jpeg')
@@ -27,26 +25,24 @@ export const jobsData = [
         ],
         order: {
             message: 'Be in the first',
-            countMsg: '31 applicants'
+            countMsg: '10 applicants'
         },
-        color: function () {
-            return colors[getRandomColorIndex()];
-        }(),
         details: {
             description: `We're a team of youthful, intelligent and dedicated creative who have an unrivaled energy and passion for crafting beautiful and meaningful products\n\nWe strive to follow all UX processes of ideation research and MVP for our product designs to enable output that is both aesthetic and strategic`,
             responsibilities: `Keep the interface beautiful and easy to use`,
             jobType: 'Full-Time',
-            salary: `$90,000 - $150,000 a year`,
+            salary: `$80,000 - $140,000 a year`,
             NumOfHires: 2,
         }
 
     },
     {
         company: 'LinkedIn Corporation',
-        title: 'Talent Aquisition Manager',
-        tags: ['User Interface', 'User Research / Flow'],
+        title: 'Talent Acquisition Manager',
+        tags: ['Recruitment', 'Management'],
         logo: require('../assets/linkedin.png'),
-        hoursAgo: '6 hours ago',
+        hoursAgo: '4 hours ago',
+        category: 'Network',
         applied: [
             {
                 img: require('../assets/image1.jpeg')
@@ -66,11 +62,8 @@ export const jobsData = [
         ],
         order: {
             message: 'Be in the first',
-            countMsg: '31 applicants'
+            countMsg: '24 applicants'
         },
-        color: function () {
-            return colors[getRandomColorIndex()];
-        }(),
         details: {
             description: `We're a team of youthful, intelligent and dedicated creative who have an unrivaled energy and passion for crafting beautiful and meaningful products\nWe strive to follow all UX processes of ideation research and MVP for our product designs to enable output that is both aesthetic and strategic`,
             responsibilities: `Keep the interface beautiful and easy to use`,
@@ -82,9 +75,10 @@ export const jobsData = [
     {
         company: 'Google',
         title: 'Lead Software Engineer',
-        tags: ['User Interface', 'User Research / Flow'],
+        tags: ['Software', 'Programming'],
         logo: require('../assets/youtube.jpg'),
         hoursAgo: '6 hours ago',
+        category: 'Security',
         applied: [
             {
                 img: require('../assets/image1.jpeg')
@@ -104,11 +98,8 @@ export const jobsData = [
         ],
         order: {
             message: 'Be in the first',
-            countMsg: '31 applicants'
+            countMsg: '13 applicants'
         },
-        color: function () {
-            return colors[getRandomColorIndex()];
-        }(),
         details: {
             description: `We're a team of youthful, intelligent and dedicated creative who have an unrivaled energy and passion for crafting beautiful and meaningful products\nWe strive to follow all UX processes of ideation research and MVP for our product designs to enable output that is both aesthetic and strategic`,
             responsibilities: `Keep the interface beautiful and easy to use`,
@@ -121,33 +112,23 @@ export const jobsData = [
 
 export const categories = [
     {
-        icon: 'some-icon',
-        name: 'Design',
-        count: '3.2',
+        name: 'Engineering',
+        count: '3.2k',
     },
     {
-        icon: 'some-icon',
-        name: 'Network',
-        count: '2.6',
-    },
-    {
-        icon: 'some-icon',
         name: 'Security',
-        count: '2.8',
+        count: '1.6k',
     },
     {
-        icon: 'some-icon',
-        name: 'IT',
-        count: '2.8',
+        name: 'Design',
+        count: '1.4k',
     },
     {
-        icon: 'some-icon',
-        name: 'Software Architect',
-        count: '2.8',
+        name: 'Network',
+        count: '649',
     },
     {
-        icon: 'some-icon',
-        name: 'Tech Lead',
-        count: '2.8',
-    },
+        name: 'Medical',
+        count: '2.1k',
+    }
 ];
