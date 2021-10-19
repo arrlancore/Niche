@@ -12,6 +12,7 @@ import { theme } from '../theme';
 import { elevation_3, elevation_6, POPUP_HEIGHT } from '../utils';
 import Arrow from '../../assets/arrow-left.svg';
 import Toggle from '../components/Toggle';
+import ShadowLine from '../components/ShadowLine';
 
 const getSectionTitle = (text) => {
     if (text === 'description') return 'Job Description';
@@ -130,6 +131,8 @@ const Job = ({
                 zIndex={1}
                 textColor='#000'
             />
+
+            <ShadowLine />
         </View>
     );
 };
