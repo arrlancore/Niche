@@ -6,7 +6,7 @@ export const jobsData = [
         logo: require('../assets/uber.png'),
         hoursAgo: '2 hours ago',
         category: 'Design',
-        location: '1600 Amphitheatre Parkway, Mountain View',
+        location: '1455 Market St #400, San Francisco',
         applied: [
             {
                 img: require('../assets/image1.jpeg')
@@ -44,7 +44,7 @@ export const jobsData = [
         logo: require('../assets/linkedin.png'),
         hoursAgo: '4 hours ago',
         category: 'Network',
-        location: '1600 Amphitheatre Parkway, Mountain View',
+        location: '1000 W Maude Ave, Sunnyvale, CA',
         applied: [
             {
                 img: require('../assets/image1.jpeg')
@@ -81,7 +81,7 @@ export const jobsData = [
         logo: require('../assets/youtube.jpg'),
         hoursAgo: '6 hours ago',
         category: 'Security',
-        location: '1600 Amphitheatre Parkway, Mountain View',
+        location: '901 Cherry Ave, San Bruno',
         applied: [
             {
                 img: require('../assets/image1.jpeg')
