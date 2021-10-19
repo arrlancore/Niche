@@ -20,7 +20,7 @@ import Categories from './Categories';
 const FilterButton = () => {
     return (
         <TouchableOpacity style={styles.filter}>
-            <FilterIcon height={20} width={20} fill={theme.icon_main} />
+            <FilterIcon height={18} width={18} fill={theme.icon_main} />
         </TouchableOpacity>
     );
 };
@@ -32,13 +32,7 @@ const Input = () => {
             <TextInput
                 placeholder='Search for jobs'
                 placeholderTextColor={theme.text_placeholder}
-                style={{
-                    flex: 1,
-                    height: 48,
-                    backgroundColor: theme.input,
-                    paddingHorizontal: 10,
-                    color: theme.text_main
-                }}
+                style={styles.input}
             />
             <FilterButton />
         </View>
@@ -93,9 +87,16 @@ const styles = StyleSheet.create({
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: theme.border
     },
+    input: {
+        flex: 1,
+        height: 48,
+        backgroundColor: theme.input,
+        paddingHorizontal: 10,
+        color: theme.text_main
+    },
     filter: {
         backgroundColor: '#fff',
-        padding: 6,
+        padding: 8,
         borderRadius: 10,
         ...elevation_1
     }
