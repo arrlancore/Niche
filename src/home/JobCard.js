@@ -134,7 +134,6 @@ const JobCard = ({
 const styles = StyleSheet.create({
     container: {
         height: 230,
-        backgroundColor: theme.cardBackground,
         borderRadius: 12,
         paddingVertical: 22,
         paddingHorizontal: 26,
