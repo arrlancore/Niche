@@ -39,8 +39,9 @@ const Header = (props) => {
             </TouchableOpacity>
 
             {isHomePage && (
-
-                <Image source={require('../../assets/image2.jpeg')} style={styles.profileImg} />
+                <View style={styles.profileImageContainer}>
+                    <Image source={require('../../assets/image4.jpeg')} style={styles.profileImg} />
+                </View>
             )}
         </Animated.View>
     );
@@ -61,10 +62,15 @@ const styles = StyleSheet.create({
     profileImg: {
         height: 36,
         width: 36,
-        borderRadius: 99,
         resizeMode: 'cover',
-        marginRight: 2,
-        ...elevation_3
+        borderRadius: 99,
+    },
+    profileImageContainer: {
+        borderWidth: 1,
+        borderColor: theme.border,
+        borderRadius: 99,
+        padding: 2,
+        ...elevation_3,
     }
 });
 
