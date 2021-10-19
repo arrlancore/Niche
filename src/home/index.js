@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 
 import { theme } from '../theme';
-import Search from '../../assets/search.svg';
-import Filter from '../../assets/filter2.svg';
+import SearchIcon from '../../assets/search.svg';
+import FilterIcon from '../../assets/filter.svg';
 
 import JobsMatched from './JobsMatched';
 import { elevation_1 } from '../utils';
@@ -20,7 +20,7 @@ import Categories from './Categories';
 const FilterButton = () => {
     return (
         <TouchableOpacity style={styles.filter}>
-            <Filter height={20} width={20} stroke={theme.icon_main} />
+            <FilterIcon height={20} width={20} fill={theme.icon_main} />
         </TouchableOpacity>
     );
 };
@@ -28,7 +28,7 @@ const FilterButton = () => {
 const Input = () => {
     return (
         <View style={styles.inputContainer}>
-            <Search stroke={theme.icon_main} height={20} width={20} />
+            <SearchIcon stroke={theme.icon_main} height={20} width={20} />
             <TextInput
                 placeholder='Search for jobs'
                 placeholderTextColor={theme.text_placeholder}
@@ -59,7 +59,7 @@ const Home = () => {
                 <JobsMatched />
             </Section>
 
-            <Section title='Job Category'>
+            <Section title='Categories'>
                 <Categories />
             </Section>
         </ScrollView>
@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: theme.input,
-        paddingHorizontal: 16,
+        paddingLeft: 16,
+        paddingRight: 12,
         borderRadius: 10,
         marginTop: 28,
         borderWidth: StyleSheet.hairlineWidth,
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     },
     filter: {
         backgroundColor: '#fff',
-        padding: 8,
+        padding: 6,
         borderRadius: 10,
         ...elevation_1
     }
