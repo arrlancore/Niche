@@ -7,7 +7,7 @@ import {
 } from 'react-native-reanimated';
 import { POPUP_HEIGHT } from '../utils';
 
-const usePopupAnimate = ({ to }) => {
+const usePopupAnimation = ({ to }) => {
 
     const offset = useSharedValue(POPUP_HEIGHT);
 
@@ -32,4 +32,4 @@ const usePopupAnimate = ({ to }) => {
     };
 };
 
-export default usePopupAnimate;
+export default usePopupAnimation;

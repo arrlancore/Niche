@@ -7,7 +7,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-import usePopupAnimate from '../hooks/usePopupAnimate';
+import usePopupAnimation from '../hooks/usePopupAnimation';
 import { POPUP_HEIGHT } from '../utils';
 
 const SCR_WIDTH = Dimensions.get('window').width;
@@ -23,7 +23,7 @@ const Popup = ({
     textColor = '#fff',
 }) => {
 
-    const { show, animate } = usePopupAnimate({ to: extraOffset });
+    const { show, animate } = usePopupAnimation({ to: extraOffset });
 
     useEffect(() => {
         if (visible) show();
