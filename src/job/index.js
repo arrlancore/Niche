@@ -76,6 +76,7 @@ const Job = ({
     const [showAlert, setShowAlert] = useState(false);
     const [showSkillBadge, setShowSkillBadge] = useState(false);
     const [jobAlert, setJobAlert] = useState(false);
+    const [showShadow, setShowShadow] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -106,9 +107,24 @@ const Job = ({
         />
     );
 
+    const onScroll = ({ nativeEvent }) => {
+        const { contentOffset } = nativeEvent;
+        if (contentOffset.y > 0) {
+            if (showShadow) return;
+            setShowShadow(true);
+        } else {
+            if (!showShadow) return;
+            setShowShadow(false);
+        }
+    };
+
     return (
         <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.scrollView}>
+            <ScrollView
+                contentContainerStyle={styles.scrollView}
+                onScroll={onScroll}
+                scrollEventThrottle={16}
+            >
                 <JobInfo {...{ job }} />
                 <JobDetails details={job.details} />
             </ScrollView>
@@ -132,7 +148,7 @@ const Job = ({
                 textColor='#000'
             />
 
-            <ShadowLine />
+            {showShadow && (<ShadowLine />)}
         </View>
     );
 };

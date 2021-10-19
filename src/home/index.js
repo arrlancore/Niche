@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     StyleSheet,
     View,
@@ -18,6 +18,7 @@ import Section from './Section';
 import Categories from './Categories';
 
 import { elevation_1 } from '../utils';
+import ShadowLine from '../components/ShadowLine';
 
 const FilterButton = () => {
     return (
@@ -41,24 +42,50 @@ const Input = () => {
     );
 };
 
+
+
 const Home = () => {
+
+    const [showShadow, setShowShadow] = useState(false);
+
+    const onScroll = ({ nativeEvent }) => {
+        const { contentOffset } = nativeEvent;
+        if (contentOffset.y > 0) {
+            if (showShadow) return;
+            setShowShadow(true);
+        } else {
+            if (!showShadow) return;
+            setShowShadow(false);
+        }
+    };
+
     return (
-        <ScrollView style={styles.outerContainer} contentContainerStyle={styles.container}>
-            <Text style={styles.title}>
-                Find the World's most{'\n'}
-                <Text style={{ fontWeight: '700' }}>Amazing Jobs</Text>
-            </Text>
+        <>
+            <ScrollView
+                style={styles.outerContainer}
+                contentContainerStyle={styles.container}
+                onScroll={onScroll}
+                scrollEventThrottle={16}
+            >
+                <Text style={styles.title}>
+                    Find the World's most{'\n'}
+                    <Text style={{ fontWeight: '700' }}>Amazing Jobs</Text>
+                </Text>
 
-            <Input />
+                <Input />
 
-            <Section title='Jobs Matched'>
-                <JobsMatched />
-            </Section>
+                <Section title='Jobs Matched'>
+                    <JobsMatched />
+                </Section>
 
-            <Section title='Categories'>
-                <Categories />
-            </Section>
-        </ScrollView>
+                <Section title='Categories'>
+                    <Categories />
+                </Section>
+
+
+            </ScrollView>
+            {showShadow && (<ShadowLine />)}
+        </>
     );
 };
 
