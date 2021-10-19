@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {
-    Text,
     View,
     StyleSheet,
     ScrollView,
     Image,
     TouchableOpacity
 } from 'react-native';
+import Text from '../components/Text';
 import Popup from '../components/Popup';
 import { theme } from '../theme';
 import { elevation_3, elevation_6, POPUP_HEIGHT } from '../utils';

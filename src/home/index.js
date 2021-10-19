@@ -1,21 +1,23 @@
 import React from 'react';
 import {
     StyleSheet,
-    Text,
     View,
     TextInput,
     TouchableOpacity,
     ScrollView
 } from 'react-native';
+import Text from '../components/Text';
 
 import { theme } from '../theme';
+
 import SearchIcon from '../../assets/search.svg';
 import FilterIcon from '../../assets/filter.svg';
 
 import JobsMatched from './JobsMatched';
-import { elevation_1 } from '../utils';
 import Section from './Section';
 import Categories from './Categories';
+
+import { elevation_1 } from '../utils';
 
 const FilterButton = () => {
     return (
@@ -92,7 +94,8 @@ const styles = StyleSheet.create({
         height: 48,
         backgroundColor: theme.input,
         paddingHorizontal: 10,
-        color: theme.text_main
+        color: theme.text_main,
+        fontFamily: 'Poppins-Regular'
     },
     filter: {
         backgroundColor: '#fff',

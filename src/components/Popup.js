@@ -2,10 +2,9 @@ import React, { useEffect } from 'react';
 import {
     View,
     StyleSheet,
-    Text,
     Dimensions,
-    TouchableOpacity
 } from 'react-native';
+import Text from '../components/Text';
 import Animated from 'react-native-reanimated';
 import usePopupAnimation from '../hooks/usePopupAnimation';
 import { POPUP_HEIGHT } from '../utils';

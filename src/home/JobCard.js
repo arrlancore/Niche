@@ -1,11 +1,11 @@
 import React from 'react';
 import {
     View,
-    Text,
     StyleSheet,
     Image,
     TouchableWithoutFeedback
 } from 'react-native';
+import Text from '../components/Text';
 import { theme } from '../theme';
 import { cardBackgroundColor } from '../helpers';
 import ClockIcon from '../../assets/clock.svg';

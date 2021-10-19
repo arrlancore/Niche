@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-    Text,
     View,
     ScrollView,
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
+import Text from '../components/Text';
 import { categories } from '../data';
 import DesignIcon from '../../assets/design.svg';
 import NetworkIcon from '../../assets/network.svg';
@@ -13,7 +13,7 @@ import SecurityIcon from '../../assets/security.svg';
 import MedicalIcon from '../../assets/medical.svg';
 import EngineeringIcon from '../../assets/engineering.svg';
 import { cardBackgroundColor } from '../helpers';
-import { elevation_1, elevation_3 } from '../utils';
+import { elevation_1 } from '../utils';
 import { theme } from '../theme';
 
 const CategoryIcon = {
