@@ -22,7 +22,6 @@ const getSectionTitle = (text) => {
     return '--';
 };
 
-
 const JobInfo = ({ job }) => (
     <View style={styles.jobInfoContainer}>
         <View style={styles.logoContainer}>
@@ -123,8 +122,8 @@ const Job = ({
 
             <Popup
                 visible={showSkillBadge}
-                title='Similar Job Alert'
-                description='Product designer, Typography'
+                title='Earn Skill Badge'
+                description='Skills assessments helps you stand out to recruiters'
                 action={BadgeButton}
                 extraOffset={-72}
                 surface={theme.bg1}
@@ -194,7 +193,7 @@ const styles = StyleSheet.create({
         lineHeight: 19
     },
     badgeButton: {
-        padding: 8,
+        padding: 10,
         backgroundColor: '#fff',
         borderRadius: 10,
         ...elevation_3,
