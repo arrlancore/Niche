@@ -80,7 +80,7 @@ const Job = ({
         const timer = setTimeout(() => {
             setShowAlert(true);
             setShowSkillBadge(true);
-        }, 1600);
+        }, 1200);
 
         return () => {
             clearTimeout(timer);
