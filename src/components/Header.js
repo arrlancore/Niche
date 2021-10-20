@@ -6,13 +6,14 @@ import {
     Animated,
     Image
 } from 'react-native';
-import MenuBar from '../../assets/menu-bar.svg';
 import BackIcon from '../../assets/arrow-left.svg';
+import Jobee from '../../assets/jobee.svg';
+import MoreIcon from '../../assets/more.svg';
 import { theme } from '../theme';
-import { elevation_3 } from '../utils';
+import { elevation_3, elevation_4 } from '../utils';
 
 const HeaderIcon = {
-    'home': <MenuBar height={25} width={25} fill={theme.icon_main} />,
+    'home': <Jobee width={64} />,
     'job': <BackIcon height={25} width={25} fill={theme.icon_main} />
 };
 
@@ -39,9 +40,13 @@ const Header = (props) => {
             </TouchableOpacity>
 
             {isHomePage && (
-                <View style={styles.profileImageContainer}>
+                <View style={styles.rightIconContainer}>
                     <Image source={require('../../assets/image4.jpeg')} style={styles.profileImg} />
                 </View>
+            )}
+
+            {!isHomePage && (
+                <MoreIcon fill={theme.icon_main} height={30} width={30} />
             )}
         </Animated.View>
     );
@@ -50,7 +55,8 @@ const Header = (props) => {
 const styles = StyleSheet.create({
     container: {
         height: 50,
-        paddingHorizontal: 28,
+        paddingLeft: 28,
+        paddingRight: 25,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -60,17 +66,20 @@ const styles = StyleSheet.create({
         flex: 1
     },
     profileImg: {
-        height: 36,
-        width: 36,
+        height: 32,
+        width: 32,
         resizeMode: 'cover',
         borderRadius: 99,
     },
-    profileImageContainer: {
+    rightIconContainer: {
         borderWidth: 1,
         borderColor: theme.border,
         borderRadius: 99,
         padding: 2,
         ...elevation_3,
+    },
+    logo: {
+        ...elevation_4
     }
 });
 
