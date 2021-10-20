@@ -15,6 +15,7 @@ import EngineeringIcon from '../../assets/engineering.svg';
 import { cardBackgroundColor } from '../helpers';
 import { elevation_1 } from '../utils';
 import { theme } from '../theme';
+import Slide from '../components/Slide';
 
 const CategoryIcon = {
     'Design': <DesignIcon />,
@@ -43,22 +44,23 @@ const CategoryCard = () => {
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={styles.scrollView}
             >
-                {categories.map(category => (
-                    <View
-                        key={category.name}
-                        style={[styles.card, cardBackgroundColor(category.name)]}
-                    >
-                        {renderIcon(category.name)}
+                {categories.map((category, index) => (
+                    <Slide key={category.name} {...{ index }}>
+                        <View
+                            style={[styles.card, cardBackgroundColor(category.name)]}
+                        >
+                            {renderIcon(category.name)}
 
-                        <Text style={styles.name}>{category.name}</Text>
+                            <Text style={styles.name}>{category.name}</Text>
 
-                        <Text style={styles.count}>{category.count} Jobs</Text>
+                            <Text style={styles.count}>{category.count} Jobs</Text>
 
-                        <TouchableOpacity style={styles.button}>
-                            <Text style={styles.buttonText}>View Jobs</Text>
-                        </TouchableOpacity>
+                            <TouchableOpacity style={styles.button}>
+                                <Text style={styles.buttonText}>View Jobs</Text>
+                            </TouchableOpacity>
 
-                    </View>
+                        </View>
+                    </Slide>
                 ))}
             </ScrollView>
         </View>

@@ -19,6 +19,7 @@ import Categories from './Categories';
 
 import { elevation_1 } from '../utils';
 import ShadowLine from '../components/ShadowLine';
+import FadeIn from '../components/FadeIn';
 
 const FilterButton = () => {
     return (
@@ -66,20 +67,28 @@ const Home = () => {
                 onScroll={onScroll}
                 scrollEventThrottle={16}
             >
-                <Text style={styles.title}>
-                    Find the world's most{'\n'}
-                    <Text style={{ fontWeight: '700' }}>Amazing Jobs</Text>
-                </Text>
+                <FadeIn>
+                    <Text style={styles.title}>
+                        Find the world's most{'\n'}
+                        <Text style={{ fontWeight: '700' }}>Amazing Jobs</Text>
+                    </Text>
+                </FadeIn>
 
-                <Input />
+                <FadeIn delay={150}>
+                    <Input />
+                </FadeIn>
 
-                <Section title='Jobs Matched'>
-                    <JobsMatched />
-                </Section>
+                <FadeIn delay={300}>
+                    <Section title='Jobs Matched'>
+                        <JobsMatched />
+                    </Section>
+                </FadeIn>
 
-                <Section title='Categories'>
-                    <Categories />
-                </Section>
+                <FadeIn delay={450}>
+                    <Section title='Categories'>
+                        <Categories />
+                    </Section>
+                </FadeIn>
 
 
             </ScrollView>
