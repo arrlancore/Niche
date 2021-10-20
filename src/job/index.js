@@ -23,19 +23,32 @@ const getSectionTitle = (text) => {
     return '--';
 };
 
-const JobInfo = ({ job }) => (
-    <View style={styles.jobInfoContainer}>
-        <View style={styles.logoContainer}>
-            <Image source={job.logo} style={styles.logo} />
+
+
+const JobInfo = ({ job }) => {
+    const ApplyButton = (
+        <TouchableOpacity style={styles.applyButton}>
+            <View style={styles.applyButtonOverlay} />
+            <Text style={styles.applyText}>Apply</Text>
+        </TouchableOpacity>
+    );
+
+    return (
+        <View style={styles.jobInfoContainer}>
+            <View style={styles.logoContainer}>
+                <Image source={job.logo} style={styles.logo} />
+            </View>
+
+            <Text style={styles.jobTitle}>{job.title}</Text>
+
+            <Text style={styles.company}>{job.company}</Text>
+
+            <Text style={styles.location}>{job.location}</Text>
+
+            {ApplyButton}
         </View>
-
-        <Text style={styles.jobTitle}>{job.title}</Text>
-
-        <Text style={styles.company}>{job.company}</Text>
-
-        <Text style={styles.location}>{job.location}</Text>
-    </View>
-);
+    );
+};
 
 const Section = ({
     title,
@@ -107,6 +120,7 @@ const Job = ({
         />
     );
 
+
     const onScroll = ({ nativeEvent }) => {
         const { contentOffset } = nativeEvent;
         if (contentOffset.y > 0) {
@@ -118,12 +132,15 @@ const Job = ({
         }
     };
 
+
+
     return (
         <View style={styles.container}>
             <ScrollView
                 contentContainerStyle={styles.scrollView}
                 onScroll={onScroll}
                 scrollEventThrottle={16}
+                showsVerticalScrollIndicator={false}
             >
                 <JobInfo {...{ job }} />
                 <JobDetails details={job.details} />
@@ -142,7 +159,7 @@ const Job = ({
                 title='Earn Skill Badge'
                 description='Skills assessments helps you stand out to recruiters'
                 action={BadgeButton}
-                extraOffset={-72}
+                extraOffset={-90}
                 surface={theme.bg1}
                 zIndex={1}
                 textColor='#000'
@@ -161,10 +178,10 @@ const styles = StyleSheet.create({
     scrollView: {
         flexGrow: 1,
         paddingHorizontal: 30,
-        paddingBottom: (POPUP_HEIGHT * 2) - 50
+        paddingBottom: (POPUP_HEIGHT * 2)
     },
     jobInfoContainer: {
-        height: 230,
+        height: 250,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -219,6 +236,30 @@ const styles = StyleSheet.create({
         transform: [{
             rotate: '180deg',
         }],
+    },
+    applyButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 18,
+        height: 34,
+        width: 110,
+        borderWidth: StyleSheet.hairlineWidth,
+        borderColor: theme.text_secondary,
+        borderRadius: 12,
+        overflow: 'hidden'
+    },
+    applyButtonOverlay: {
+        position: 'absolute',
+        top: 2,
+        left: 2,
+        height: 34,
+        width: 106.5,
+        backgroundColor: theme.button_overlay,
+        borderRadius: 12,
+    },
+    applyText: {
+        fontSize: 14,
+        fontWeight: '500'
     }
 
 });

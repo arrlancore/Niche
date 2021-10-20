@@ -7,7 +7,7 @@ import {
 import Text from '../components/Text';
 import Animated from 'react-native-reanimated';
 import usePopupAnimation from '../hooks/usePopupAnimation';
-import { POPUP_HEIGHT } from '../utils';
+import { elevation_5, POPUP_HEIGHT } from '../utils';
 
 const SCR_WIDTH = Dimensions.get('window').width;
 
@@ -16,7 +16,7 @@ const Popup = ({
     title,
     action,
     description,
-    extraOffset = 18,
+    extraOffset = 16,
     surface = '#000',
     zIndex = 0,
     textColor = '#fff',
@@ -65,7 +65,9 @@ const styles = StyleSheet.create({
         width: SCR_WIDTH,
         borderTopLeftRadius: 28,
         borderTopRightRadius: 28,
-        padding: 30,
+        paddingHorizontal: 30,
+        paddingTop: 25,
+        ...elevation_5
     },
     innerContainer: {
         flexDirection: 'row',
@@ -77,7 +79,8 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 12,
-        marginTop: 6
+        marginTop: 6,
+        maxWidth: SCR_WIDTH / 1.5
     }
 });
 

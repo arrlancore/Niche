@@ -9,7 +9,7 @@ import { POPUP_HEIGHT } from '../utils';
 
 const usePopupAnimation = ({ to }) => {
 
-    const offset = useSharedValue(POPUP_HEIGHT);
+    const offset = useSharedValue(POPUP_HEIGHT + 5);
 
     const show = () => {
         offset.value = to;

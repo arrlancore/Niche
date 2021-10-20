@@ -8,6 +8,7 @@ export const theme = {
     text_tertiary: '#6E7579',
     text_placeholder: '#9E9FA0',
     icon_main: '#1A1824',
+    button_overlay: '#f6e770'
 
 };
 
