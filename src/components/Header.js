@@ -46,7 +46,7 @@ const Header = (props) => {
             )}
 
             {!isHomePage && (
-                <MoreIcon fill={theme.icon_main} height={30} width={30} />
+                <MoreIcon fill={theme.icon_main} height={28} width={28} />
             )}
         </Animated.View>
     );
