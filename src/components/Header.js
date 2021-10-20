@@ -7,13 +7,12 @@ import {
     Image
 } from 'react-native';
 import BackIcon from '../../assets/arrow-left.svg';
-import Jobee from '../../assets/jobee.svg';
 import MoreIcon from '../../assets/more.svg';
 import { theme } from '../theme';
 import { elevation_3, elevation_4 } from '../utils';
 
 const HeaderIcon = {
-    'home': <Jobee width={64} />,
+    'home': <Image source={require('../../assets/Jobee.png')} style={{ width: 66, resizeMode: 'contain' }} />,
     'job': <BackIcon height={25} width={25} fill={theme.icon_main} />
 };
 
@@ -41,7 +40,10 @@ const Header = (props) => {
 
             {isHomePage && (
                 <View style={styles.rightIconContainer}>
-                    <Image source={require('../../assets/image4.jpeg')} style={styles.profileImg} />
+                    <Image
+                        source={require('../../assets/yasir.png')}
+                        style={styles.profileImg}
+                    />
                 </View>
             )}
 
@@ -66,8 +68,8 @@ const styles = StyleSheet.create({
         flex: 1
     },
     profileImg: {
-        height: 32,
-        width: 32,
+        height: 36,
+        width: 36,
         resizeMode: 'cover',
         borderRadius: 99,
     },
