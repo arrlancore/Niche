@@ -13,24 +13,13 @@ import { elevation_5 } from '../utils';
 
 const JobStatus = ({ order }) => {
     return (
-        <View style={{
-            marginTop: 20,
-            flexDirection: 'row',
-            alignItems: 'center'
-        }}>
+        <View style={styles.statusContainer}>
             <View style={styles.clock}>
                 <ClockIcon fill={theme.icon_main} />
             </View>
-            <Text style={{
-                marginLeft: 5,
-                fontWeight: '400',
-                color: theme.text_secondary,
-                fontSize: 14
-            }}>
+            <Text style={styles.statusMessage}>
                 {order.message}
-                <Text style={{
-                    fontWeight: '600',
-                }}>{' '}{order.countMsg}</Text>
+                <Text style={styles.countText}>{' '}{order.countMsg}</Text>
             </Text>
         </View>
     );
@@ -164,7 +153,7 @@ const styles = StyleSheet.create({
     },
     tag: {
         fontSize: 11,
-        fontWeight: '600',
+        fontWeight: '500',
         color: theme.text_secondary
     },
     logo: {
@@ -181,6 +170,20 @@ const styles = StyleSheet.create({
     clock: {
         height: 16,
         width: 16,
+    },
+    statusContainer: {
+        marginTop: 20,
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    statusMessage: {
+        marginLeft: 5,
+        fontWeight: '400',
+        color: theme.text_secondary,
+        fontSize: 13.5
+    },
+    countText: {
+        fontWeight: '600',
     }
 });
 
