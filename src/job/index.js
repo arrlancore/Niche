@@ -13,6 +13,7 @@ import { elevation_3, elevation_6, POPUP_HEIGHT } from '../utils';
 import Arrow from '../../assets/arrow-left.svg';
 import Toggle from '../components/Toggle';
 import ShadowLine from '../components/ShadowLine';
+import FadeIn from '../components/FadeIn';
 
 const getSectionTitle = (text) => {
     if (text === 'description') return 'Job Description';
@@ -68,13 +69,18 @@ const JobDetails = ({ details }) => {
             {Object.entries(details).map(([title, description], index) => {
                 const hasSpacer = details.length - 1 !== index;
                 return (
-                    <View key={`${index}`}>
-                        <Section
-                            title={getSectionTitle(title)}
-                            description={description}
-                        />
-                        {hasSpacer && <View style={{ height: 24 }} />}
-                    </View>
+                    <FadeIn
+                        key={`${index}`}
+                        delay={(index + 1) * 150}
+                    >
+                        <View>
+                            <Section
+                                title={getSectionTitle(title)}
+                                description={description}
+                            />
+                            {hasSpacer && <View style={{ height: 24 }} />}
+                        </View>
+                    </FadeIn>
                 );
             })}
         </View>
@@ -120,7 +126,6 @@ const Job = ({
         />
     );
 
-
     const onScroll = ({ nativeEvent }) => {
         const { contentOffset } = nativeEvent;
         if (contentOffset.y > 0) {
@@ -132,8 +137,6 @@ const Job = ({
         }
     };
 
-
-
     return (
         <View style={styles.container}>
             <ScrollView
@@ -142,8 +145,12 @@ const Job = ({
                 scrollEventThrottle={16}
                 showsVerticalScrollIndicator={false}
             >
-                <JobInfo {...{ job }} />
+                <FadeIn>
+                    <JobInfo {...{ job }} />
+                </FadeIn>
+
                 <JobDetails details={job.details} />
+
             </ScrollView>
 
             <Popup
