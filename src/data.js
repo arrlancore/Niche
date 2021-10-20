@@ -7,21 +7,22 @@ export const jobsData = [
         hoursAgo: '2 hours ago',
         category: 'Design',
         location: '1455 Market St #400, San Francisco',
+        totalApplied: 10,
         applied: [
             {
-                img: require('../assets/image1.jpeg')
+                img: require('../assets/image1.png')
             },
             {
-                img: require('../assets/image2.jpeg')
+                img: require('../assets/image2.png')
             },
             {
-                img: require('../assets/image3.jpeg')
+                img: require('../assets/image3.png')
             },
             {
-                img: require('../assets/image4.jpeg')
+                img: require('../assets/image4.png')
             },
             {
-                img: require('../assets/image2.jpeg')
+                img: require('../assets/image2.png')
             }
         ],
         order: {
@@ -45,22 +46,17 @@ export const jobsData = [
         hoursAgo: '4 hours ago',
         category: 'Network',
         location: '1000 W Maude Ave, Sunnyvale, CA',
+        totalApplied: 24,
         applied: [
             {
-                img: require('../assets/image1.jpeg')
+                img: require('../assets/image4.png')
             },
             {
-                img: require('../assets/image2.jpeg')
+                img: require('../assets/image2.png')
             },
             {
-                img: require('../assets/image3.jpeg')
+                img: require('../assets/image3.png')
             },
-            {
-                img: require('../assets/image4.jpeg')
-            },
-            {
-                img: require('../assets/image2.jpeg')
-            }
         ],
         order: {
             message: 'Be in the first',
@@ -82,21 +78,22 @@ export const jobsData = [
         hoursAgo: '6 hours ago',
         category: 'Security',
         location: '901 Cherry Ave, San Bruno',
+        totalApplied: 13,
         applied: [
             {
-                img: require('../assets/image1.jpeg')
+                img: require('../assets/image1.png')
             },
             {
-                img: require('../assets/image2.jpeg')
+                img: require('../assets/image2.png')
             },
             {
-                img: require('../assets/image3.jpeg')
+                img: require('../assets/image3.png')
             },
             {
-                img: require('../assets/image4.jpeg')
+                img: require('../assets/image4.png')
             },
             {
-                img: require('../assets/image2.jpeg')
+                img: require('../assets/image2.png')
             }
         ],
         order: {
