@@ -25,10 +25,11 @@ const JobStatus = ({ order }) => {
     );
 };
 
+const JobCardFooter = ({ applied, hoursAgo, totalApplied }) => {
+    const LIMIT = 3;
 
-const JobCardFooter = ({ applied, hoursAgo }) => {
-    const people = applied.slice(0, 3);
-    const isMoreThan3 = applied.length > 3;
+    const people = applied.slice(0, LIMIT);
+    const isMoreThanLimit = Number(totalApplied) > LIMIT;
     return (
         <View style={styles.cardFooterContainer}>
             <View style={styles.appliedContainer}>
@@ -40,13 +41,13 @@ const JobCardFooter = ({ applied, hoursAgo }) => {
                         />
                     </View>
                 ))}
-                {isMoreThan3 && (
+                {isMoreThanLimit && (
                     <View style={[styles.appliedCircle, {
                         justifyContent: 'center',
                         alignItems: 'center',
                         backgroundColor: theme.text_secondary,
                     }]}>
-                        <Text style={styles.appliedRemainingCount}>{applied.length - 3}</Text>
+                        <Text style={styles.appliedRemainingCount}>{Number(totalApplied) - 3}</Text>
                     </View>
                 )}
             </View>
@@ -65,6 +66,7 @@ const JobCard = ({
         category,
         logo,
         applied,
+        totalApplied,
         company,
         hoursAgo,
         order,
@@ -103,6 +105,7 @@ const JobCard = ({
                 <JobCardFooter
                     {...{ applied }}
                     {...{ hoursAgo }}
+                    {...{ totalApplied }}
                 />
             </View>
         </TouchableWithoutFeedback>
