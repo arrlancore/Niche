@@ -9,7 +9,7 @@ import Text from '../components/Text';
 import { theme } from '../theme';
 import { cardBackgroundColor } from '../helpers';
 import ClockIcon from '../../assets/clock.svg';
-import { elevation_5 } from '../utils';
+import { elevation_1, elevation_5 } from '../utils';
 
 const JobStatus = ({ order }) => {
     return (
@@ -27,42 +27,31 @@ const JobStatus = ({ order }) => {
 
 
 const JobCardFooter = ({ applied, hoursAgo }) => {
+    const people = applied.slice(0, 3);
+    const isMoreThan3 = applied.length > 3;
     return (
-        <View style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginTop: 20
-        }}>
-            <View style={{
-                flexDirection: 'row',
-            }}>
-                {applied.map((person, i) => (
-                    <View key={`${i}`} style={{
-                        height: 32,
-                        width: 32,
-                        borderRadius: 32 / 2,
-                        borderWidth: 2,
-                        borderColor: '#fff',
-                        marginRight: -10
-                    }}>
+        <View style={styles.cardFooterContainer}>
+            <View style={styles.appliedContainer}>
+                {people.map((person, i) => (
+                    <View key={`${i}`} style={styles.appliedCircle}>
                         <Image
                             source={person.img}
-                            style={{
-                                height: '100%',
-                                width: '100%',
-                                borderRadius: 32 / 2,
-                            }}
+                            style={styles.personImg}
                         />
                     </View>
                 ))}
+                {isMoreThan3 && (
+                    <View style={[styles.appliedCircle, {
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: theme.text_secondary,
+                    }]}>
+                        <Text style={styles.appliedRemainingCount}>{applied.length - 3}</Text>
+                    </View>
+                )}
             </View>
 
-            <Text style={{
-                fontSize: 14,
-                fontWeight: '400',
-                color: theme.text_secondary,
-            }}>{hoursAgo}</Text>
+            <Text style={styles.hoursAgo}>{hoursAgo}</Text>
         </View>
     );
 };
@@ -184,6 +173,38 @@ const styles = StyleSheet.create({
     },
     countText: {
         fontWeight: '600',
+    },
+    cardFooterContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 20
+    },
+    appliedContainer: {
+        flexDirection: 'row',
+    },
+    appliedCircle: {
+        height: 32,
+        width: 32,
+        borderRadius: 32 / 2,
+        borderWidth: 1.5,
+        borderColor: '#fff',
+        marginRight: -10,
+        ...elevation_1
+    },
+    personImg: {
+        height: '100%',
+        width: '100%',
+        borderRadius: 32 / 2,
+    },
+    appliedRemainingCount: {
+        fontSize: 11,
+        color: '#fff'
+    },
+    hoursAgo: {
+        fontSize: 14,
+        fontWeight: '400',
+        color: theme.text_secondary,
     }
 });
 
