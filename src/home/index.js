@@ -23,7 +23,7 @@ import ShadowLine from '../components/ShadowLine';
 const FilterButton = () => {
     return (
         <TouchableOpacity style={styles.filter}>
-            <FilterIcon height={18} width={18} fill={theme.icon_main} />
+            <FilterIcon height={20} width={20} fill={theme.icon_main} />
         </TouchableOpacity>
     );
 };
@@ -68,7 +68,7 @@ const Home = () => {
                 scrollEventThrottle={16}
             >
                 <Text style={styles.title}>
-                    Find the World's most{'\n'}
+                    Find the world's most{'\n'}
                     <Text style={{ fontWeight: '700' }}>Amazing Jobs</Text>
                 </Text>
 
