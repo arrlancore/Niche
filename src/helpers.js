@@ -1,4 +1,4 @@
-export const getCategoryColor = (categoryName) => {
+const getCategoryColor = (categoryName) => {
     const categoriesColor = {
         'Design': '#ffece0',
         'Network': '#d9edff',
