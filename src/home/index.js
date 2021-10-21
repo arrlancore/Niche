@@ -78,7 +78,7 @@ const Home = () => {
                 </FadeIn>
 
                 <FadeIn delay={300}>
-                    <Section title='Jobs Matched'>
+                    <Section title='Latest'>
                         <JobsMatched />
                     </Section>
                 </FadeIn>
