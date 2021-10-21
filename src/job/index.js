@@ -23,13 +23,16 @@ const sectionTitle = {
     'NumOfHires': 'Number of Hires',
 };
 
+const calculateAnimationDelay = (index) => {
+    return (index + 1) * 50;
+};
+
 const getSectionTitle = (text) => {
     if (sectionTitle[text]) {
         return sectionTitle[text];
     }
     return '--';
 };
-
 
 const JobInfo = ({ job }) => {
     const ApplyButton = (
@@ -73,10 +76,11 @@ const JobDetails = ({ details }) => {
         <View style={styles.jobDetailsContainer}>
             {Object.entries(details).map(([title, description], index) => {
                 const hasSpacer = details.length - 1 !== index;
+
                 return (
                     <FadeIn
                         key={`${index}`}
-                        delay={(index + 1) * 150}
+                        delay={calculateAnimationDelay(index)}
                     >
                         <View>
                             <Section
