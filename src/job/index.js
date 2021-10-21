@@ -15,15 +15,20 @@ import Toggle from '../components/Toggle';
 import ShadowLine from '../components/ShadowLine';
 import FadeIn from '../components/FadeIn';
 
-const getSectionTitle = (text) => {
-    if (text === 'description') return 'Job Description';
-    if (text === 'responsibilities') return 'Responsibilities';
-    if (text === 'jobType') return 'Job Type';
-    if (text === 'salary') return 'Salary';
-    if (text === 'NumOfHires') return 'Number of Hires';
-    return '--';
+const sectionTitle = {
+    'description': 'Job Description',
+    'responsibilities': 'Responsibilities',
+    'jobType': 'Job Type',
+    'salary': 'Salary',
+    'NumOfHires': 'Number of Hires',
 };
 
+const getSectionTitle = (text) => {
+    if (sectionTitle[text]) {
+        return sectionTitle[text];
+    }
+    return '--';
+};
 
 
 const JobInfo = ({ job }) => {
@@ -245,9 +250,9 @@ const styles = StyleSheet.create({
         }],
     },
     applyButton: {
+        marginTop: 18,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 18,
         height: 34,
         width: 110,
         borderWidth: StyleSheet.hairlineWidth,
