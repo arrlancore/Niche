@@ -12,7 +12,7 @@ import { theme } from '../theme';
 import { elevation_3, elevation_4 } from '../utils';
 
 const HeaderIcon = {
-    'home': <Image source={require('../../assets/Jobee.png')} style={{ width: 66, resizeMode: 'contain' }} />,
+    'home': <Image source={require('../../assets/Niche.png')} style={{ width: 66, resizeMode: 'contain' }} />,
     'job': <BackIcon height={25} width={25} fill={theme.icon_main} />
 };
 
