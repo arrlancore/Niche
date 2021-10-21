@@ -2,7 +2,7 @@ import { Platform, Dimensions } from 'react-native';
 
 export const SCR_WIDTH = Dimensions.get('window').width;
 
-export const POPUP_HEIGHT = 120;
+export const POPUP_HEIGHT = 125;
 export const TOGGLE_HEIGHT = 18;
 export const TOGGLE_WIDTH = 34;
 export const CIRCLE_HEIGHT = TOGGLE_HEIGHT - 4;

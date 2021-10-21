@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
         width: SCR_WIDTH,
         borderTopLeftRadius: 28,
         borderTopRightRadius: 28,
-        paddingHorizontal: 30,
-        paddingTop: 25,
+        paddingHorizontal: 28,
+        paddingTop: 18,
         ...elevation_5
     },
     innerContainer: {

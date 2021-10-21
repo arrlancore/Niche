@@ -175,7 +175,7 @@ const Job = ({
                 title='Earn Skill Badge'
                 description='Skills assessments helps you stand out to recruiters'
                 action={BadgeButton}
-                extraOffset={-90}
+                extraOffset={-80}
                 surface={theme.bg1}
                 zIndex={1}
                 textColor='#000'
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
     scrollView: {
         flexGrow: 1,
         paddingHorizontal: 30,
-        paddingBottom: (POPUP_HEIGHT * 2)
+        paddingBottom: (POPUP_HEIGHT * 2) - 30
     },
     jobInfoContainer: {
         height: 250,
