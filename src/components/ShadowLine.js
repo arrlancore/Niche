@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { shadowLineGradientColors } from '../theme';
 
-const colors = ["rgba(0, 0, 0, 0.1)", "#ffffff00"];
+
 
 const ShadowLine = () => {
     return (
         <LinearGradient
-            colors={colors}
+            colors={shadowLineGradientColors}
             style={styles.gradient} />
     );
 };

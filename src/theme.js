@@ -9,20 +9,17 @@ export const theme = {
     text_placeholder: '#9E9FA0',
     icon_main: '#1A1824',
     button_overlay: '#f6e770'
-
 };
 
-export const colors = [
-    '#C1D3FE',
-    '#d1d1d1',
-    '#A0CED9',
-    '#ffc09f',
-    '#eac4d5',
-    '#eddcd2',
-    '#e69597',
-    '#ceb5b7',
-    '#dfb2f4',
-    '#f2f5ff',
-    '#f6bc66',
-    '#bde0fe',
+export const shadowLineGradientColors = [
+    "rgba(0, 0, 0, 0.1)",
+    "#ffffff00"
 ];
+
+export const categoriesColor = {
+    'Design': '#ffece0',
+    'Network': '#d9edff',
+    'Security': '#ffe3e3',
+    'Medical': '#ffe6d9',
+    'Engineering': '#FDEDD2',
+};

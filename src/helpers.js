@@ -1,12 +1,6 @@
-const getCategoryColor = (categoryName) => {
-    const categoriesColor = {
-        'Design': '#ffece0',
-        'Network': '#d9edff',
-        'Security': '#ffe3e3',
-        'Medical': '#ffe6d9',
-        'Engineering': '#FDEDD2',
-    };
+import { categoriesColor } from './theme';
 
+const getCategoryColor = (categoryName) => {
     return categoriesColor[categoryName];
 };
 
