@@ -1,4 +1,4 @@
-package ys.sherzad.jobee;
+package niche.yssherzad;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "jobee";
+    return "niche";
   }
 
   @Override
