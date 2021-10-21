@@ -1,9 +1,12 @@
 import React from 'react';
 import {
-    SafeAreaView,
     StatusBar,
     StyleSheet
 } from 'react-native';
+import {
+    SafeAreaProvider,
+    SafeAreaView
+} from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
@@ -31,24 +34,24 @@ const JobScreenOptions = {
 const App = gestureHandlerRootHOC(() => {
 
     return (
-        <SafeAreaView style={styles.flexOne}>
-            <StatusBar barStyle='dark-content' />
-
-            <NavigationContainer>
-                <Stack.Navigator>
-                    <Stack.Screen
-                        name="home"
-                        component={Home}
-                        options={HomeScreenOptions}
-                    />
-                    <Stack.Screen
-                        name='job'
-                        component={Job}
-                        options={JobScreenOptions}
-                    />
-                </Stack.Navigator>
-            </NavigationContainer>
-        </SafeAreaView>
+        <SafeAreaProvider>
+            <SafeAreaView style={styles.flexOne} edges={['top', 'left', 'right']}>
+                <NavigationContainer>
+                    <Stack.Navigator>
+                        <Stack.Screen
+                            name="home"
+                            component={Home}
+                            options={HomeScreenOptions}
+                        />
+                        <Stack.Screen
+                            name='job'
+                            component={Job}
+                            options={JobScreenOptions}
+                        />
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </SafeAreaView>
+        </SafeAreaProvider>
     );
 });
 
