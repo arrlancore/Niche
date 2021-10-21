@@ -42,7 +42,7 @@ export const jobsData = [
         company: 'Cisco',
         title: 'Network Engineer',
         tags: ['CCT, CCENT, Net+', 'Management'],
-        logo: require('../assets/cisco.png'),
+        logo: require('../assets/cisco.jpeg'),
         hoursAgo: '1 hour ago',
         category: 'Network',
         location: '1000 W Maude Ave, Sunnyvale, CA',
