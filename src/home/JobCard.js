@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
         height: 25,
         width: 25,
         borderRadius: 5,
-        resizeMode: 'contain'
+        resizeMode: 'cover'
     },
     row: {
         flexDirection: 'row',
