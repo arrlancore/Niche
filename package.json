@@ -1,6 +1,9 @@
 {
-  "name": "amazingjobs",
+  "name": "Jobee",
   "version": "0.0.1",
+  "author": "Yasir Sherzad <ys.sherzad@gmail.com>",
+  "description": "Jobee is a job-seeking app concept built with React Native. This is simply a dummy prototype app consisting of two screens. However, a great user experience and crafty animations with the help of Reanimated 2",
+  "repository": "https://github.com/ys-sherzad/Jobee",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -20,7 +23,6 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-reanimated": "2.3.0-beta.2",
-    "react-native-rename": "^2.9.0",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.8.0",
     "react-native-snap-carousel": "^3.9.1",
