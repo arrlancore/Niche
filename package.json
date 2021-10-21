@@ -2,8 +2,8 @@
   "name": "Niche",
   "version": "0.0.1",
   "author": "Yasir Sherzad <ys.sherzad@gmail.com>",
-  "description": "Jobee is a job-seeking app concept built with React Native. This is simply a dummy prototype app consisting of two screens. However, a great user experience and crafty animations with the help of Reanimated 2",
-  "repository": "https://github.com/ys-sherzad/Jobee",
+  "description": "Niche is a job portal app concept",
+  "repository": "https://github.com/ys-sherzad/Niche",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
