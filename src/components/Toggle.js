@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native';
 import Animated from 'react-native-reanimated';
 import useToggleAnimation from '../hooks/useToggleAnimation';
