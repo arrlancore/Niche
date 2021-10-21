@@ -14,6 +14,20 @@ import Header from './components/Header';
 
 const Stack = createStackNavigator();
 
+const HomeScreenOptions = {
+    headerMode: 'float',
+    title: null,
+    header: (props) => (<Header {...props} />),
+    headerShadowVisible: false,
+};
+
+const JobScreenOptions = {
+    headerMode: 'float',
+    title: null,
+    header: (props) => (<Header {...props} />),
+    headerShadowVisible: false,
+};
+
 const App = gestureHandlerRootHOC(() => {
 
     return (
@@ -25,22 +39,12 @@ const App = gestureHandlerRootHOC(() => {
                     <Stack.Screen
                         name="home"
                         component={Home}
-                        options={{
-                            headerMode: 'float',
-                            title: null,
-                            header: (props) => (<Header {...props} />),
-                            headerShadowVisible: false,
-                        }}
+                        options={HomeScreenOptions}
                     />
                     <Stack.Screen
                         name='job'
                         component={Job}
-                        options={{
-                            headerMode: 'float',
-                            title: null,
-                            header: (props) => (<Header {...props} />),
-                            headerShadowVisible: false
-                        }}
+                        options={JobScreenOptions}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
