@@ -17,9 +17,9 @@ export const shadowLineGradientColors = [
 ];
 
 export const categoriesColor = {
-    'Design': '#ffece0',
     'Network': '#d9edff',
-    'Security': '#ffe3e3',
-    'Medical': '#ffe6d9',
-    'Engineering': '#FDEDD2',
+    'Design': '#FDEDD2',
+    'Security': '#D1FAEB',
+    'Medical': '#e2e0ff',
+    'Engineering': '#d1e8e7',
 };

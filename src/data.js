@@ -4,7 +4,7 @@ export const jobsData = [
         title: 'Sr. Product Designer',
         tags: ['User Interface', 'User Research / Flow'],
         logo: require('../assets/uber.png'),
-        hoursAgo: '2 hours ago',
+        hoursAgo: '50 min ago',
         category: 'Design',
         location: '1455 Market St #400, San Francisco',
         totalApplied: 10,
@@ -40,10 +40,10 @@ export const jobsData = [
     },
     {
         company: 'LinkedIn Corporation',
-        title: 'Talent Acquisition Manager',
-        tags: ['Recruitment', 'Management'],
+        title: 'Network Engineer',
+        tags: ['CCT, CCENT, Net+', 'Management'],
         logo: require('../assets/linkedin.png'),
-        hoursAgo: '4 hours ago',
+        hoursAgo: '1 hour ago',
         category: 'Network',
         location: '1000 W Maude Ave, Sunnyvale, CA',
         totalApplied: 24,
@@ -72,10 +72,10 @@ export const jobsData = [
     },
     {
         company: 'Google',
-        title: 'Lead Software Engineer',
-        tags: ['Software', 'Programming'],
+        title: 'Cybersecurity Analyst',
+        tags: ['Microsoft O365 suite, Azure', 'SSCP'],
         logo: require('../assets/youtube.jpg'),
-        hoursAgo: '6 hours ago',
+        hoursAgo: '3 hours ago',
         category: 'Security',
         location: '901 Cherry Ave, San Bruno',
         totalApplied: 13,
@@ -112,23 +112,23 @@ export const jobsData = [
 
 export const categories = [
     {
+        name: 'Design',
+        count: '1.4k',
+    },
+    {
         name: 'Engineering',
         count: '3.2k',
     },
     {
-        name: 'Security',
-        count: '1.6k',
-    },
-    {
-        name: 'Design',
-        count: '1.4k',
+        name: 'Medical',
+        count: '2.1k',
     },
     {
         name: 'Network',
         count: '649',
     },
     {
-        name: 'Medical',
-        count: '2.1k',
-    }
+        name: 'Security',
+        count: '1.6k',
+    },
 ];
