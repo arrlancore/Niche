@@ -29,7 +29,6 @@ yarn android
 
 Feel free to create an issue if you face any problems running the project.
 
-**Hit me up**
-
-[Instagram @ ys.sherzad](https://www.instagram.com/ys.sherzad/)
-[Twitter @ YasirSherzad](https://twitter.com/YasirSherzad)
+**Hit me up:**
+[@Instagram](https://www.instagram.com/ys.sherzad/)
+[@Twitter](https://twitter.com/YasirSherzad)
