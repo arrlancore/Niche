@@ -4,7 +4,7 @@
  * Instagram @ ys.sherzad  *************************
  * Twitter @ YasirSherzad  ********************
  * **************************************************************
- * 
+ * "Make everyday count"
  */
 
 import React, { useState } from 'react';
@@ -22,7 +22,7 @@ import { theme } from '../theme';
 import SearchIcon from '../../assets/search.svg';
 import FilterIcon from '../../assets/filter.svg';
 
-import JobsMatched from './JobsMatched';
+import Latest from './Lastest';
 import Section from './Section';
 import Categories from './Categories';
 
@@ -88,7 +88,7 @@ const Home = () => {
 
                 <FadeIn delay={300}>
                     <Section title='Latest'>
-                        <JobsMatched />
+                        <Latest />
                     </Section>
                 </FadeIn>
 

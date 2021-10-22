@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 const sliderWidth = Dimensions.get('window').width;
 const itemWidth = sliderWidth * .85;
 
-const JobsMatched = () => {
+const Latest = () => {
     const navigation = useNavigation();
 
     const onJobCardPress = (job) => {
@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default JobsMatched;
+export default Latest;
