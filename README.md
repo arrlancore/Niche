@@ -7,7 +7,7 @@ A job portal app concept
 
 Clone the repo
 ```
-git clone https://github.com/ys-sherzad/niche.git
+git clone https://github.com/ys-sherzad/Niche.git
 ```
 On your project directory
 
@@ -29,6 +29,6 @@ yarn android
 
 Feel free to create an issue if you face any problems running the project.
 
-**Hit me up:**
+**💬🥂 Hit me up:**
 [@Instagram](https://www.instagram.com/ys.sherzad/)
-[@Twitter](https://twitter.com/YasirSherzad)
+[@Twitter](https://twitter.com/YasirSherzad) 
