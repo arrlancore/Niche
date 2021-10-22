@@ -1,7 +1,7 @@
 # Niche 👑
 A job portal app concept
 
-![](Niche.gif)
+![](niche.gif)
 
 **Installation**
 

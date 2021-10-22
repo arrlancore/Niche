@@ -4,7 +4,7 @@
  * Instagram @ ys.sherzad  *************************
  * Twitter @ YasirSherzad  ********************
  * **************************************************************
- * "Make everyday count"
+ * "Make everyday count" 🇦🇫
  */
 
 import React, { useState } from 'react';
